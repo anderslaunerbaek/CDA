@@ -1,0 +1,464 @@
+---
+title: 'Computational Data Analysis - Case 1'
+author: "Anders Launer Bæk (s160159)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+header-includes: 
+    - \usepackage{graphicx}
+    - \usepackage{hyperref}
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+
+knitr::opts_chunk$set(echo=FALSE, 
+                      include=TRUE,
+                      warning=FALSE,
+                      fig.width=8, fig.height=4,
+                      fig.show='hold', fig.align='center',
+                      
+                      eval=TRUE, 
+                      tidy=TRUE, 
+                      dev='pdf', 
+                      cache=TRUE, fig.pos="th!")
+
+kable_format <- list(small.mark=",",
+                     big.mark=',',
+                     decimal.mark='.',
+                     nsmall=3,
+                     digits=3,
+                     scientific=FALSE,
+                     big.interval=3L)
+
+library(ggplot2)
+library(akima)
+library(dplyr)
+theme_TS <- function(base_size=9, base_family="", face="plain"){
+  theme_bw(base_size=base_size, base_family=base_family) %+replace%
+    theme(panel.background=element_blank(), 
+          panel.border=element_blank(),
+          panel.grid=element_blank(),
+          axis.text=element_text(size=base_size, face=face, family=base_family),
+          axis.title=element_text(size=base_size, face=face, family=base_family),
+          legend.text=element_text(size=base_size, face=face, family=base_family))
+}
+
+# Multiple plot function
+#
+# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
+# - cols:   Number of columns in layout
+# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#
+# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+# then plot 1 will go in the upper left, 2 will go in the upper right, and
+# 3 will go all the way across the bottom.
+#
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots=length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol=cols, nrow=ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout=grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind=TRUE))
+
+      print(plots[[i]], vp=viewport(layout.pos.row=matchidx$row,
+                                      layout.pos.col=matchidx$col))
+    }
+  }
+}
+source("~/DTU/Courses/CDA/Cases/funcs.R")
+```
+
+Sparring partner:
+
+* Grétar Atli Grétarsson (s170251)
+
+
+```{r include=FALSE}
+# get data 
+dat <- readr::read_csv("~/DTU/Courses/CDA/Cases/case1/Case1_Data.csv") %>% 
+    mutate(X100 = as.factor(X100))
+# dat[is.na(dat)] <- NA
+col_names <- colnames(dat)
+```
+
+## Selected models
+
+It has been chosen to estimate a linear model with the below mentioned approaches and combine these individual responses in an final ensemble model.
+
+* Ridge regression: $\beta_{ridge} = arg\, min\parallel Y-X\beta\parallel_2^2+\lambda \parallel \beta\parallel_2^2$
+* Lasso regression: $\beta_{lasso} = arg\, min\parallel Y-X\beta\parallel_2^2+\lambda \parallel \beta\parallel_1$
+
+Both of the latter mentioned models uses a shrinkage approach in order to force the model coefficients towards zero which reduces the complexity in the model structure.
+
+## Preprocess data
+Data provided data exists of `r dim(dat)[2]` columns with `r dim(dat)[1]` rows. `r dim(dat[!is.na(dat$Y),])[1]` of theses  `r dim(dat)[1]` rows does include a valid responds value. 
+
+The following pre-processing have been done to the data set:
+
+* There are `r table(complete.cases(dat[,-1]))[["FALSE"]]` of `r dim(dat)[1]` (`r as.integer(table(complete.cases(dat[,-1]))[["FALSE"]] / dim(dat)[1] * 100)`%) rows with missing data. It has been chosen to impute the missing value for the each column by inserting the expected value for the given column. 
+* The column X100 is a categorical variable with `r length(levels(dat$X100))` levels (`r paste(levels(dat$X100), collapse = ", ")`). 
+It has been chosen to transform X100 in to `r length(levels(dat$X100))` dummy variables: `r paste0("X100",levels(dat$X100), collapse = ", ")`.
+* The distribution of each column have been plotted in a histogram in order to investigate the demand for transformations. There is no skewness in the distributions and hereby no need for transformations of the column according to the visual inspections. The levels of the categorical variable (X100) is reasonable balanced in overall, in train set and in the test set (these without responses), see table \ref{tab_1}.
+```{r}
+col_means <- dat %>%
+    select(-X100) %>%
+    summarise_all(funs(mean(., na.rm = T)))
+for (ii in col_names[c(-1,-101)]) {
+    dat[[ii]][is.na(dat[[ii]])] <- col_means[[ii]]
+}
+
+# one hot
+dat <- dat %>%
+    select(X100) %>% 
+    model.matrix(~. -1, data = .) %>% 
+    as.data.frame(.) %>% bind_cols(dat, .)
+col_names <- colnames(dat)
+
+tmp <- dat %>% select(Y, X100) %>% 
+    group_by(X100) %>% 
+    summarise(n = as.integer(n()/dim(dat)[1]*100),
+              n_train = as.integer(sum(ifelse(!is.na(Y) ,1,0)) / n()*100),
+              n_test = as.integer(sum(ifelse(is.na(Y) ,1,0)) / n()*100)) 
+tmp$n_train <- as.integer(tmp$n_train / sum(tmp$n_train) * 100)
+tmp$n_test <- as.integer(tmp$n_test / sum(tmp$n_test) * 100)
+tmp %>% 
+    rename(`All (%)` = n, `Train (%)` = n_train, `Test (%)` = n_test) %>%
+    knitr::kable(., caption = paste("\\label{tab_1}Percentage balance of the", length(levels(dat$X100)), "levels in the X100 variable."))
+```
+
+
+```{r, eval=FALSE}
+for (ii in col_names[c(-1,-101,-102,-103,-104)]) {
+    dat %>% select(ii) %>% 
+        ggplot(aes(.)) +
+        geom_histogram() +
+        theme_TS()
+    ggsave(paste0("~/DTU/Courses/CDA/Cases/case1/pics/raw/",ii,".pdf"))
+}
+```
+
+
+## Prepare data for cross validation train and validate
+
+```{r}
+X_mod <- dat %>% filter(!is.na(Y)) %>% select(-Y,-X100)
+Y_mod <- dat %>% filter(!is.na(Y)) %>% select(Y)
+X_tt <- dat %>% filter(is.na(Y)) %>% select(-Y, -X100) %>% as.matrix(.)
+
+p <- dim(X_mod)[2]
+n <- dim(X_mod)[1]
+
+iid_test_size <- 0.3
+n_idd <- n - as.integer(n * iid_test_size)
+
+set.seed(22)
+iid_idx <- sample(1:n, n_idd, replace = F)
+test_idx <- which(!(1:n %in% iid_idx))
+
+# k_fold <- n_idd
+k_fold <- 5
+cv_idx <- which(1:n %in% iid_idx)
+set.seed(44)
+cv_folds <- caret::createFolds(cv_idx, k_fold)
+
+```
+
+Is has been chosen to use `r k_fold`-fold cross validation with a validation set on `r as.integer(iid_test_size*100)`% of the total `r dim(dat[!is.na(dat$Y),])[1]` observations.
+** TODO WHY `r k_fold`-fold **
+
+The latter mentioned two models are trained and validated on exactly the same indices. The MSE have been calculated for each loop in their hyperparameter search.
+
+* The Ridge regression does only depend on $\lambda_{ii}$ and is calculated on close form as follows: $\beta _{ \lambda _{ ii } }=(X_{ train }^{ T }X_{ train }+\lambda _{ ii }I)X_{ train }^{ T })^{ -1 }(Y_{train}-\mu _{ Y_{train} })$.
+* The approach for the Lasso regression is inspired by the: `glmnet(X_train, Y_train - Y_train_mean, lambda, alpha = 0, standardize = F, intercept=F)` function. The coefficients for $\lambda_{ii}$ can be extracted by the `coef()` function.
+
+Please notice that the mean of the responds are subtracted. This is due to the characteristic of the shrinking methods. By not center the responds variable around its mean the model estimation will introduce a bias to the model.
+
+The train design matrix will standardized by the native `scale()` in `R` and the validate design matrix will be scaled according to the train design matrix in each fold.
+
+```{r}
+#
+k <- 200
+l_r <- c(-5,1)
+lambdas <- pracma::logspace(l_r[1], l_r[2], k)
+MSE_las <- MSE <- array(rep(NA, k_fold*k*3), c(k_fold, k, 3)); 
+# MSE_rf <- array(rep(NA, k_fold*p*4), c(k_fold, p, 4)); 
+
+for (kk in 1:k_fold) {
+    #
+    test_idx <- cv_folds[[kk]]
+    train_idx <- which(!(cv_idx %in% test_idx))
+    # preprocessing and subtracting the train and data set
+    X_train <- X_mod %>% 
+        slice(train_idx) %>% 
+        as.matrix() %>% 
+        scale(.)
+    Y_train <- Y_mod %>% slice(train_idx) %>% as.matrix(.)
+    Y_train_mean <- mean(Y_train)
+    #
+    X_val <- X_mod %>% 
+        slice(test_idx) %>% 
+        as.matrix(.) %>% 
+        scale(., center = attr(X_train,"scaled:center"), scale = attr(X_train,"scaled:scale"))
+    Y_val <- Y_mod %>% slice(test_idx) %>% as.matrix(.)
+    
+    # Ridge and Lasso
+    for(ii in 1:k) {
+        # estimate ridge parameters
+        beta_r <- solve(t(X_train) %*% X_train + lambdas[ii] * diag(p)) %*% t(X_train) %*% (Y_train-Y_train_mean)
+        # caculate error
+        res <- (Y_val-Y_train_mean - X_val %*% beta_r)^2
+        MSE[kk, ii, 1] <- mean(res)
+        # MSE[kk, ii, 2] <- sd(res)
+        # MSE[kk, ii, 3] <- var(res)
+        
+        # estimate lasso parameters
+        beta_las <- as.matrix(coef(glmnet::glmnet(X_train, Y_train - Y_train_mean, alpha = 0, lambda = lambdas[ii], standardize = F, intercept=F)), ncol=1)[-1,]
+        # caculate error
+        res <- (Y_val-Y_train_mean - X_val %*% beta_las)^2
+        MSE_las[kk, ii, 1] <- mean(res)
+        # MSE_las[kk, ii, 2] <- sd(res)
+        # MSE_las[kk, ii, 3] <- var(res)
+    }
+    
+    # # Lasso
+    # for(ii in 1:k) {
+    #     # estimate lasso parameters
+    #     beta_las <- as.matrix(coef(glmnet::glmnet(X_train, Y_train - Y_train_mean, alpha = 0, lambda = lambdas[ii], standardize = F, intercept=F)), ncol=1)[-1,]
+    #     # caculate error
+    #     res <- (Y_val-Y_train_mean - X_val %*% beta_las)^2
+    #     MSE_las[kk, ii, 1] <- mean(res)
+    #     # MSE_las[kk, ii, 2] <- sd(res)
+    #     # MSE_las[kk, ii, 3] <- var(res)
+    # }
+    
+    # # random forest model
+    # for(mtry in 1:p) { 
+    #     rf <- randomForest::randomForest(x = X_train, y=as.vector(Y_train), ntree=2001, mtry=mtry)
+    #     res <- (Y_val - predict(rf, X_val))^2
+    #     MSE_rf[kk, mtry, 1] <- mean(res)
+    #     # MSE_rf[kk, mtry, 2] <- sd(res)
+    #     # MSE_rf[kk, mtry, 3] <- var(res)
+    #     # MSE_rf[kk, mtry, 4] <- which.min(rf$mse)
+    # }
+}
+```
+
+
+Figure \ref{fig_1} illustrates the MSE as a function of $\lambda$ for the two models. 
+
+```{r, fig.cap="\\label{fig_1}MSE as a function of lambda for Ridge and Lasso regression."}
+# finds the average value for MSE for all folds as function of lambda
+cv_df <- data.frame(lambda = lambdas)
+cv_df$mse_means <- colMeans(MSE[,,1])
+cv_df$mse_sd <- cv_df$mse_means / sqrt(k_fold)
+best_idx_mean <- which.min(cv_df$mse_means)
+best_idx_sd <- which.min(cv_df$mse_sd)
+# update index to std. one error
+best_idx_sd <- max(which(cv_df$mse_means[best_idx_sd] + cv_df$mse_sd[best_idx_sd] > cv_df$mse_means))
+lambda_opt <- cv_df$lambda[best_idx_sd]
+
+# finds the average value for MSE for all folds as function of lambda
+cv_df_las <- data.frame(lambda = lambdas)
+cv_df_las$mse_means <- colMeans(MSE_las[,,1])
+cv_df_las$mse_sd <- cv_df_las$mse_means / sqrt(k_fold)
+best_idx_mean_las <- which.min(cv_df_las$mse_means)
+best_idx_sd_las <- which.min(cv_df_las$mse_sd)
+# update index to std. one error
+best_idx_sd_las <- max(which(cv_df_las$mse_means[best_idx_sd_las] + cv_df_las$mse_sd[best_idx_sd_las] > cv_df_las$mse_means))
+lambda_opt_las <- cv_df_las$lambda[best_idx_sd_las]
+
+# # update index to std. one error
+# rf_mse_means <- colMeans(MSE_rf[,,1])
+# rf_mse_sd <- rf_mse_means / sqrt(k_fold)
+# rf_best_idx_mean <- which.min(rf_mse_means)
+# rf_best_idx_sd <- which.min(rf_mse_sd)
+# mtry_opt <- max(which(rf_mse_means[rf_best_idx_mean] + rf_mse_sd[rf_best_idx_sd] > rf_mse_means))
+# # n_trees_opt <- as.integer(names(sort(table(MSE_rf[,,4]), decreasing = T)[1]))
+# n_trees_opt <- rf$ntree
+
+# std. one error plot
+ggplot() +
+    geom_point(data=cv_df,aes(lambda, mse_means, colour="MSE Ridge")) +
+    geom_point(data=cv_df[best_idx_mean,], aes(lambda, mse_means, colour="opt. L_R")) +
+    geom_point(data=cv_df[best_idx_sd,], aes(lambda, mse_means, colour=paste("std. one error\nL_R =",round(cv_df[best_idx_sd,"lambda"],4)))) +
+    geom_point(data=cv_df_las,aes(lambda, mse_means, colour="MSE Lasso")) +
+    geom_point(data=cv_df_las[best_idx_mean_las,], aes(lambda, mse_means, colour="opt. L_L")) +
+    geom_point(data=cv_df_las[best_idx_sd_las,], aes(lambda, mse_means, colour=paste("std. one error\nL_L =",round(cv_df_las[best_idx_sd_las,"lambda"],4)))) +
+    coord_trans(x="log") +
+    scale_y_continuous(limits = c(0,2)) +
+    scale_x_continuous(breaks = pracma::logspace(l_r[1], l_r[2], k/50)) +
+    labs(x="lambda",y="MSE", colour="") +
+    theme_TS()
+```
+
+
+## Model Assesment based upon `r as.integer(iid_test_size*100)`% test set
+
+In order to make sure that the best possible estimate of the prediction error, the estimated models are evaluated on the `r as.integer(iid_test_size*100)`% test set. The models uses the optimal parameters found in the cross validation. The parameters are as follows:
+
+* $\lambda_{Ridge} = `r lambda_opt`$
+* $\lambda_{Lasso} = `r lambda_opt_las`$
+
+Table \ref{tab_2} reports the performance metric of the `r as.integer(iid_test_size*100)`% validate set (model selection). 
+
+```{r}
+#
+X_train <- X_mod %>% slice(test_idx) %>% as.matrix() %>% scale(.)
+Y_train <- Y_mod %>% slice(test_idx) %>% as.matrix(.)
+Y_train_mean <- mean(Y_train)
+# Ridge
+beta_r <- solve(t(X_train) %*% X_train + lambda_opt * diag(p)) %*% t(X_train) %*% (Y_train-Y_train_mean)
+# get estimated resdisuals
+Y_train_hat <- Y_train_mean + X_train %*% beta_r
+r2 <- R2_func(Y_train, Y_train_hat)
+rmse <- RMSE_func(Y_train, Y_train_hat)
+mse <- MSE_func(Y_train, Y_train_hat)
+
+# lasso
+beta_las <- as.matrix(coef(glmnet::glmnet(X_train, Y_train - Y_train_mean, alpha = 0, lambda = lambda_opt_las, standardize = F, intercept=F)), ncol=1)[-1,]
+Y_train_hat_las <- Y_train_mean + X_train %*% beta_las
+r2_las <- R2_func(Y_train, Y_train_hat_las)
+rmse_las <- RMSE_func(Y_train, Y_train_hat_las)
+mse_las <- MSE_func(Y_train, Y_train_hat_las)
+
+# # random forest
+# rf <- randomForest::randomForest(x = X_train, y=as.vector(Y_train), ntree=n_trees_opt, mtry=mtry_opt) 
+# Y_train_hat_rf <- rf$predicted
+# r2_rf <- R2_func(Y_train, Y_train_hat_rf)
+# rmse_rf <- RMSE_func(Y_train, Y_train_hat_rf)
+# mse_rf <- MSE_func(Y_train, Y_train_hat_rf)
+# 
+
+# do average
+# r_num <- c(r2, r2_las, r2_rf)
+r_num <- c(1-rmse, 1-rmse_las)
+r_num <- r_num / sum(r_num)
+
+# how much of the variance is described?
+# Y_hat_comp <- Y_train_hat * r_num[1] + Y_train_hat_las * r_num[2] + Y_train_hat_rf * r_num[3]
+Y_hat_comp <- Y_train_hat * r_num[1] + Y_train_hat_las * r_num[2]
+r2_comp <- R2_func(Y_train, Y_hat_comp)
+rmse_comp <- RMSE_func(Y_train, Y_hat_comp)
+mse_comp <- MSE_func(Y_train, Y_hat_comp)
+
+
+knitr::kable(data.frame(Algo = c("Ridge Regression", "Lasso Regression", "Ensemble Model"),
+                        R2 = c(r2, r2_las, r2_comp),
+                        MSE = c(mse, mse_las, mse_comp),
+                        RMSE = c(rmse, rmse_las, rmse_comp)),
+             caption = "\\label{tab_2}Performance of the two models and the combined ensemble model."
+)
+
+# save model objects
+# save(X_train, Y_train, Y_train_mean, r_num, beta_r, beta_las, rf, file="~/DTU/Courses/CDA/Cases/case1/model_objects.rda")
+save(X_train, Y_train, Y_train_mean, r_num, beta_r, beta_las, file="~/DTU/Courses/CDA/Cases/case1/model_objects.rda")
+```
+
+As it appears from the table above, the bottom row is the performance metrics for the ensemble model. The weight ratios between the two models are given below:
+
+* $w_{Ridge}=\frac{(1-`r rmse`)}{(1-`r rmse`)+(1-`r rmse_las`)}=`r (1-rmse)/((1-rmse_las) + (1-rmse))`$
+* $w_{Lasso}=\frac{(1-`r rmse_las`)}{(1-`r rmse`)+(1-`r rmse_las`)}=`r (1-rmse_las)/((1-rmse_las) + (1-rmse))`$
+
+### Expected rRMSE
+The expected `rRMSE` is: 
+
+* `rRMSE=``r RMSE_func(Y_train, Y_hat_comp)` 
+
+### Re-train the model on compleate train data
+The models will be re-trained on the complete train data after the unbiased `rRMSE` estimate has been stated. New parameter estimates is obtained and new weight ratios used in the ensemble is calculated.
+
+```{r}
+#
+X_train <- X_mod %>% as.matrix() %>% scale(.)
+Y_train <- Y_mod  %>% as.matrix(.)
+Y_train_mean <- mean(Y_train)
+# Ridge
+beta_r <- solve(t(X_train) %*% X_train + lambda_opt * diag(p)) %*% t(X_train) %*% (Y_train-Y_train_mean)
+# get estimated resdisuals
+Y_train_hat <- Y_train_mean + X_train %*% beta_r
+r2 <- R2_func(Y_train, Y_train_hat)
+rmse <- RMSE_func(Y_train, Y_train_hat)
+mse <- MSE_func(Y_train, Y_train_hat)
+
+# lasso
+beta_las <- as.matrix(coef(glmnet::glmnet(X_train, Y_train - Y_train_mean, alpha = 0, lambda = lambda_opt_las, standardize = F, intercept=F)), ncol=1)[-1,]
+Y_train_hat_las <- Y_train_mean + X_train %*% beta_las
+r2_las <- R2_func(Y_train, Y_train_hat_las)
+rmse_las <- RMSE_func(Y_train, Y_train_hat_las)
+mse_las <- MSE_func(Y_train, Y_train_hat_las)
+
+# do average
+# r_num <- c(r2, r2_las, r2_rf)
+r_num <- c(1-rmse, 1-rmse_las)
+r_num <- r_num / sum(r_num)
+
+# save model objects
+save(X_tt, X_train, Y_train, Y_train_mean, r_num, beta_r, beta_las, file="~/DTU/Courses/CDA/Cases/case1/model_objects.rda")
+```
+
+The new weight ratios between the two models are slightly changed compare to weights found by using the validate set (model selection). The weights for the ensemble model are given below:
+
+* $w_{Ridge}=\frac{(1-`r rmse`)}{(1-`r rmse`)+(1-`r rmse_las`)}=`r (1-rmse)/((1-rmse_las) + (1-rmse))`$
+* $w_{Lasso}=\frac{(1-`r rmse_las`)}{(1-`r rmse`)+(1-`r rmse_las`)}=`r (1-rmse_las)/((1-rmse_las) + (1-rmse))`$
+
+
+## Reflections
+
+What could be improved and why?
+
+* ...
+
+## Predict missing responds 
+COMMING UP!
+
+```{r}
+rm(list=ls())
+source("~/DTU/Courses/CDA/Cases/funcs.R")
+load("~/DTU/Courses/CDA/Cases/case1/model_objects.rda")
+
+# scale data
+X_unknown <- X_tt %>% scale(., center = attr(X_train,"scaled:center"), 
+                            scale = attr(X_train,"scaled:scale")) %>% 
+    as.matrix(.)
+
+# rigde regression
+Y_unknown_hat <- Y_train_mean + X_unknown %*% beta_r
+# lasso
+Y_unknown_hat_las <- Y_train_mean + X_unknown %*% beta_las
+
+# estimate response
+
+Y_unknown_hat_complete <- Y_unknown_hat * r_num[1] + Y_unknown_hat_las * r_num[2]
+write(Y_unknown_hat_complete, "~/DTU/Courses/CDA/Cases/case1/Y_hat.csv")
+
+# load correct value of Y[101:1100]
+# Y_test_hat_correct <- readr::read_csv("~/DTU/Courses/CDA/Cases/case1/Case1_Data.csv")
+# RMSE_tot <- RMSE_func(Y_test_hat_correct, Y_unknown_hat_complete)
+RMSE_tot <- NULL
+```
+
+* Obtained rRMSE on 1000 observations: `rRMSE=``r RMSE_tot`
