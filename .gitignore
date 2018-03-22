@@ -5,6 +5,8 @@ Litterature/*
 Cases/case1/case1_cache/*
 Cases/case1/case1_files/*
 
+Cases/case2/data/*
+
 .Rhistory
 .Rapp.history
 

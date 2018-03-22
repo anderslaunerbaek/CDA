@@ -1,6 +1,6 @@
 ---
 title: 'Computational Data Analysis - Case 1'
-author: "Grétar Atli Grétarsson (s170251) & Anders Launer Bæk (s160159)"
+author: "Anders Launer Bæk (s160159)"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 header-includes: 
     - \usepackage{graphicx}
@@ -91,11 +91,11 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 }
 source("~/DTU/Courses/CDA/Cases/case1/funcs.R")
 ```
-<!--
+
 Sparring partner:
 
 * Grétar Atli Grétarsson (s170251)
--->
+
 
 ```{r include=FALSE}
 # get data 
@@ -178,14 +178,13 @@ n_idd <- n - as.integer(n * iid_test_size)
 set.seed(22)
 iid_idx <- sample(1:n, n_idd, replace = F)
 test_idx <- which(!(1:n %in% iid_idx))
-k_fold <- 5
+k_fold <- 10
 cv_idx <- which(1:n %in% iid_idx)
 set.seed(44)
 cv_folds <- caret::createFolds(cv_idx, k_fold)
 ```
 
 Is has been chosen to use `r k_fold`-fold cross validation with a validation set on `r as.integer(iid_test_size*100)`% of the `r dim(dat[!is.na(dat$Y),])[1]` train observations.
-
 By incresing the number of folds to 10 or to a more drametically approaches such as the leave-one-out cross validation it will usaually result in a lower bias but a greather variance in the estimate of the parameters. 
 
 The three models are trained and validated on exactly the same indices. The MSE have been calculated for each loop in their hyperparameter search.
@@ -458,10 +457,15 @@ Y_unknown_hat_el <- Y_train_mean + X_unknown %*% beta_el
 Y_unknown_hat_complete <- Y_unknown_hat * r_num[1] + Y_unknown_hat_las * r_num[2] + Y_unknown_hat_el * r_num[3]
 write(Y_unknown_hat_complete, "~/DTU/Courses/CDA/Cases/case1/Y_hat.csv")
 save(Y_unknown_hat_complete, file = "~/DTU/Courses/CDA/Cases/case1/Y_hat.Rda")
+
+
+
 # load correct value of Y[101:1100]
-# Y_test_hat_correct <- readr::read_csv("~/DTU/Courses/CDA/Cases/case1/Case1_Data.csv")
-# RMSE_tot <- RMSE_func(Y_test_hat_correct, Y_unknown_hat_complete)
-RMSE_tot <- NULL
+Y_test_hat_correct <- readr::read_csv("~/DTU/Courses/CDA/Cases/case1/Case1_Answer.csv")[["Y"]][101:1100]
+# source("~/DTU/Courses/CDA/Cases/case1/Case1CheckY.R")
+# RMSE_tot <- Case1CheckY(Y_unknown_hat_complete)
+RMSE_tot <- RMSE_func(Y_test_hat_correct, Y_unknown_hat_complete)
+
 ```
 
 * Achieved RMSE of the 1000 observations: `RMSE=``r RMSE_tot`
