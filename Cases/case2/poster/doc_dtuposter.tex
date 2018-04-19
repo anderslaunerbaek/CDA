@@ -1,0 +1,60 @@
+%======================================================================
+%===  dtuposter - a class to make posters tha comply with the DTU CI
+%
+% Written and maintained in 2011-2014 
+% by Jorrit Wronski (jowr@mek.dtu.dk)
+%
+%
+%==========================================
+%===  details and poster setup
+\documentclass[
+    ,title     = {{Decomposition of natural images}}
+    ,longtitle
+%    ,author    = {{Anders Launer Bæk}}
+%    ,subject   = {{This is the subject of my work}}
+%    ,bgcolor   = dtulightgreen
+    ,highlight = dtured
+    ,toplogo   = {{template/tex_dtu_compute_b_uk}}
+    ,botlogo   = {{template/tex_dtu_frise}}
+    ,papersize = {{a0paper}}
+    ,colcount  = {{3columns}}
+%    ,largecaption
+%    ,draft
+%    ,nocrop
+%    ,fleqn          % equations on the left
+]{dtuposter}
+%======================================================================
+%=== Font definitions, DTU recommends Arial for posters
+\usepackage{cmbright}
+\usepackage{arevmath}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+%======================================================================
+%=== Other useful packages
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{siunitx}
+%======================================================================
+%=== The actual content starts here
+\begin{document}
+%===  Make header for poster (title and authors)
+\begin{dtuposterhead} %
+\dtuposterauthor{  Anders Launer Bæk}
+\dtuposteraffil{Case 2 in 02582 Computational Data Analysis}
+\end{dtuposterhead}
+%
+%
+%======================================================================
+%===  ... and the rest of the content
+\begin{dtupostercontent}
+\section{Introduction}
+\section{Basic Options}
+
+\section{Introduction}
+\section{Basic Options}
+
+
+
+\end{dtupostercontent}
+\end{document}
