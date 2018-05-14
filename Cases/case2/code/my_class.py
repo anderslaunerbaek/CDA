@@ -22,14 +22,65 @@ class my_class:
 	Image: M * N * 3 numpy array
 	win: Window size for the dark channel prior
 	'''
-	def performance(pred_test, Y_test):
-		cm_test = confusion_matrix(y_pred = pred_test,
-			y_true = np.argmax(Y_test, axis=1), 
-			labels = list(range(Y_test.shape[1])))
 
-		acc_test = np.sum(np.diag(cm_test)) / np.sum(cm_test)
-		print("\n\nAccuracy:\t{0}".format(acc_test))
-		print("\nConfusion matrix (pred x true)\n", cm_test)
+
+	def performance(pred, Y):
+		"""
+
+
+		"""
+		from sklearn.metrics import confusion_matrix
+		import numpy as np
+
+		def array_to_latex(tbl):
+			for ii in range(tbl.shape[0]):
+				tmp_str = ''
+				for jj in range(tbl.shape[1]):
+					if jj != 0:
+						tmp_str += ' & ' + "{:.0f}".format(tbl[ii,jj])  
+					else:
+						tmp_str += "{:.0f}".format(tbl[ii,jj]) 
+
+				tmp_str += ' \\\\ '
+				print(tmp_str)
+        
+		def performance_measure(pred_test, Y_test):
+			#
+			cm = confusion_matrix(y_pred = pred_test,
+				y_true = Y_test, 
+				labels = list(range(len(set(Y_test)))))
+			TP = np.diag(cm)
+			FP = np.sum(cm, axis=0) - np.diag(cm)
+			FN = np.sum(cm,axis=1) - np.diag(cm)
+			TN = np.sum(cm) - (FP+FN+TP)
+			#
+			precision = TP/ (TP + FP)
+			recall = TP / (TP + FN)
+			F1 = np.multiply(2, np.multiply(precision, recall) / np.add(precision, recall))
+			acc = (TP+TN)/(TP+FP+FN+TN)
+			#
+			return TP, FP, precision, recall, F1, acc, cm
+			#cm_test = confusion_matrix(y_pred = pred_test,
+		#	y_true = np.argmax(Y_test, axis=1), 
+		#	labels = list(range(Y_test.shape[1])))
+
+		#acc_test = np.sum(np.diag(cm_test)) / np.sum(cm_test)
+		#print("\n\nAccuracy:\t{0}".format(acc_test))
+		#print("\nConfusion matrix (pred x true)\n", cm_test)
+		TP, FP, precision, recall, F1, Acc, cm = performance_measure(pred_test=pred, Y_test=np.argmax(Y, axis=1))
+		print('--------------------------------------------')
+		print('Average for all classes')
+		print('Accurcy:   %f' %(np.mean(Acc)))
+		print('Precision: %f' %(np.mean(precision)))
+		print('Recall:    %f' %(np.mean(recall)))
+		print('F1:        %f' %(np.mean(F1)))
+
+		#
+		print("std.\n")
+		array_to_latex(cm)
+		# 
+		print("\npct.\n")
+		array_to_latex(cm / cm.astype(np.float).sum(axis=1, keepdims=True) * 100)
 
 	def accuracy(pred_test, Y_test):
 		cm_test = confusion_matrix(y_pred = pred_test,

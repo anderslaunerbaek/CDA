@@ -1,0 +1,809 @@
+---
+output:
+  html_document
+---
+
+# Exam notes
+Table of content
+
+* [Lecture 1](#lecture-1)
+* [Lecture 2](#lecture-2)
+* [Lecture 3](#lecture-3)
+* [Lecture 4](#lecture-4)
+* [Lecture 5](#lecture-5)
+* [Lecture 6](#lecture-6)
+* [Lecture 7](#lecture-7)
+* [Lecture 8](#lecture-8)
+* [Lecture 9](#lecture-9)
+* [Lecture 10](#lecture-10)
+* [Lecture 11](#lecture-11)
+* [Lecture 12](#lecture-12)
+
+<!--
+* [Lecture Case 1](#lecture-case-1)
+* [Lecture Case 2](#lecture-case-2)
+-->
+
+### Goals of this subject
+
+* Get experience with a selection of mordern statistical tools for accurate data analysis.
+* Emphasis on life-science and industrial applications.
+* Statistical engineering.
+* Solve unstructured problems.
+
+Their aim:
+* Know the methods such that i can:
+    * demenstrante an understanding of usage
+    * explain the methods
+    * motivate choices of methods and paramters
+
+### Key learning objectives
+
+A student who has met the objectives of the course will be able to:
+
+* Evaluate clustering methods and select suitable parameters and models for given data
+* Evaluate linear discriminant analysis and ridge regression
+* Evaluate cross validation, bootstrapping and concepts such as over-fitting.
+* Evaluate sparse regression and classification models.
+* Evaluate logistic regression and support vector classifiers for 2 class problems
+* Evaluate and interpret Classification and Regression Trees (CART).
+* Evaluate bagging, boosting and random forests for classification and regression.
+* Evaluate and interpret sparse latent methods such as sparse principal component and sparse partial least squares.
+* Evaluate a range of unsupervised decomposition methods
+* Compare the mentioned methods
+
+### The examination
+
+Draw week ?? and present for 5 min, 5 min general talk and total 15 min with grading
+
+* Prepare the the topics for each
+* Include the knowledge from the exercises and the learning from them.
+* TELLING THEM this or that
+* You can bring anything on paper… But not using the paper! Get the overview and then put it away..
+
+
+## Lecture 1
+
+**Literature:** ESL Chapters 1, 2, 3.1, 3.2, 3.4.1, 4.1 and 13.3
+
+**Topics introduced:**
+
+* supervised vs. unsupervised learning
+    * Supervised learning: There is a label/desired output for the given features
+        * classification
+            * LDA
+            * KNN
+            * SVM
+        * regression
+            * OLS
+            * Ridge-regression
+            * KNN
+    * Unsupervised learning: There is no given label -> the underlying structures aka. hitten pattern needs to be discovered. 
+        * PCA
+        * Cluster analysis
+* Terminology
+    * Inputs, predictors, features
+*􏰀 Basic regression
+    * Ordinary least squares:   
+        * $y = X \beta + e$
+        * Correlation between feature must be acknowlegde.. 
+        * It is possible to gain losts of information by looking at the estimated OLS values.
+        * Increasing the number of variables will increase the variance but lower the bias. Removing parameters will decrease the variance and increase the bais. -> You have the "Bias-Variance trade-off".
+        * OLS is the best linear unbiased estimate... but can have high variance.. works for n > p
+        * Large values of $\beta$'s will identicate high variance. One way ot comprehend this is the ridge regression.
+    * Ridge regression
+        * The main point in ridge regression is to lower the estimated values of the parameters towards zero: $\beta_{ridge} = (X^TX+\lambda I)^{-1}X^Ty$ where $\lambda$ controles the amonu of shrinkage: This value can be found be CV.
+        * By adding $\lambda$ to the diagonal we increase the numerical stability..
+        * This approach is doable when there is more variables than observations..
+        * NB: data must be centeret due to the intercept term.. and normalized to put equal importance on all variables.
+*􏰀 Basic classification
+    * Fischer linear discriminant analysis (LDA)
+        * Maximixing the seprability among the known classes: 
+            * maximized between-class variance: $\Sigma_B=\sum_{j=1}^K(\mu_j-\mu)^T(\mu_j - \mu)$
+            * minimize within-class variance: $\Sigma _{ W }=\sum _{ j=1 }^{ K } \sum_{i=1}^{n_j}(X_{ij} - \mu_j )^{ T }(X_{ij} - \mu_j )$
+        * This will draw a line in 2D and a hyperplane in multiply dimensions.
+        * linear desisions lines
+    * K nearest neighbor (KNN)
+        * Consider den K - nearest observations using a specificed distance metric (measure of proximity).
+        * Using matority vote in classification -- but you can also use averaging in regression.
+        * flexible desisions lines
+* BIAS 
+* VARIANCE
+* All ways consider the residuals.. Does the residuals fulfill their assumption fx Gaussian distributed?
+
+### Key points
+
+* Estimated Prediction Error
+    * This is the same as the MSE.. $\sum_i (\hat{y_i}-y_i)^2$
+* Bias-Variance trade-off
+    * plotting the high dimensional data in 2D gives a great interpretability of the decision lines..
+    * high bias -> underfitting the data. You have an expected value which are diviating a lot from the true value.
+    * high variance -> overfitting the data- 
+        * The classifer is too flexible
+    * Look at the test and validation error
+    * overfitting the traning set -> does not gerenelize weel to the test set.. -> high veriance
+* Notes
+    * AIC and BIC = good when there is correlation in the observation.. fx. in time series.
+    * Always look at the residuals, is they normal distributed? 
+    * tuning parameters:
+        * PCA: number of principal components
+        * KNN: number of K (niegbhours)
+        * Ridge / Lasso / Elastic net: pen. parameter $\lambda$
+
+### Exercises
+
+
+
+## Lecture 2
+
+**Literature:** ESL Chapter 7 and 9.2.5. You may safely skip sections 7.8 and 7.9
+
+**Topics introduced:**
+
+* Model complexity
+    * Bias, variance, over-fitting and under-fitting
+        * trade off: The complexity in the model.. 
+        * over-fitting: model become too flexible and fits the noise within the data AND we needs lots of data to estimate the parameters. The parameter values will typically "cancel" each other. "getting it rigth on average but being wrong the most of the time.." -> high variance
+            * under-fitting: variating in the data will not be describt.. "Never getting it quite rigth but usually almost" -> high bias
+* Model Selection (on train and validation)
+    * Methods for selecting an appropriate model from an ensemble of candidates:
+        * Training, validation, test set
+            * test set is typecally ranging from 20% to 30%
+        * Cross-validation
+            *  Always use the "One standard error rule" -> This will be a smaller and less complex model which error is no more then one std. error above the MSE for the best model.
+            * Permute data before splitting into three!
+            * Do preprocessing inside each fold
+            * impute missing data seprately
+            * OBS: Time dependent structure.
+            * Leave-one-out does perform too similar.. use $k=5$ or $k=10$
+        * Methods based on information criteria
+            * Information criteria:
+                * performs weel if there is a correlation in the observations fx. in time series.
+                * AIC and BIC: metrics based on `n` goes to infinity.. acquire lots of data. Maximixing the log-likelihood. AIC works on small data sets and BIC works on big data sets.
+* Model assessment (on test)
+    * Bootstrap: Draw random samples with replacement.. This method can be used to creating X bootstrapped data sets. Then the model can be estimated on theses X data sets and the estimated parameter can be averaged..   
+        * NB: with replacements-- unbalanced, dublicates of data -> may increase / put weigth on "wrong aspects" data.
+        * You can gain lots of knowlegde of the model fits over the replications.
+        * Out-of-bag samples when calculating the error term.. These are the independent observations from the bootstrap samples.
+        * we need 1000-2000 bootstrap replicates to be able to calculate the confident interval. 
+    * Classifier performance
+        * Confusion matrix
+            * Sensitivity: ability to identify positive samples
+            * Specificity: ability to identify negative samples
+            * Positive pred. value: proportion of positive samples which are correctly classified
+            * Negative pred. value: proportion of negative samples which are correctly classified
+            * False discovery rate: proportion of positive samples which are IN - correctly classified.. This number is very good for tuning of hyperparameters.
+            * ROC-curves: aka. area under the curve (AUC). This is a graph of: 1 - specificity on the first axsis and sensitivity of the second axsis as a function of the given cut value. The cut-off value are typically case dependent and may be tuned for fitting the business rules.
+
+### Key points
+
+* Methods must generalize aka. create reasonable predictions on unseen data.
+    * This is also known as the test error.. predicted performed over an independet data set. 
+    
+
+### Exercises
+    
+    
+    
+## Lecture 3
+**Literature:** ESL Chapter 3.3, 3.4 and 18
+
+**Methods introduced:**
+
+* The curse of dimensional
+    * The properties of high dimension problems
+        * "Interpolation becomes extrapolation in high dimensions"
+            * 1. Several features will be correlated and we can average over them
+            * 2. Underlying distribution will be finite, informative data will be laying on a low-dimensional manifold
+            * 3. Underlying structure in data (samples from continuous processes, imagesetc) will give an approximate finite dimensional.
+        * Considerations: 
+            * Regularize methods, PCA, transform to a latent representation
+* Dimension reduction
+    * Regularization
+        * PCR, Ridge, Lasso, Elastic net
+        * L1 or L2 norms.. L2 curves, L1 lines and a combination.. this is for the Lasso, ridge and elastic net respectively. 
+    * Combination search, feature selection and extraction: these 
+    * Best practice:
+        * 1. Subtract mean and standardize variance on all variables before applying any regularization techniques! you do not want to penalize the intercept and you want to create equal importance to each of the selected feature. 
+        * 2. When you have obtained the optimal regularization parameters and evaluated performance you should build one final model on all data (using the obtained regularization parameter): "get better estimates for the final betas with the selected 
+hyperparameter."
+* Multiple hypothesis testing
+    * testing:  
+        * t-test: test difference between groups
+        * f-test: test of parameter significance.. Is the parameters estimated to be zero?
+    * Why it is a problem
+    * Bonferroni correction:
+        * Falsely rejecting the hypothesis -> solved to scaling $\alpha$ by the number of tests. 
+    * False discover rate and Benjamini-Hochberg algorithm
+
+
+
+
+### Key points
+* Least angle regression selection (LARS)
+    * Advantages:
+        * It is computationally just as fast as forward selection.
+        * It produces a full piecewise linear solution path, which is useful in cross-validation or similar attempts to tune the model.
+        * If two variables are almost equally correlated with the response, then their coefficients should increase at approximately the same rate. The algorithm thus behaves as intuition would expect, and also is more stable.
+        * It is easily modified to produce efficient algorithms for other methods producing similar results, like the lasso and forward stagewise regression.
+        * It is effective in contexts where p >> n (i.e., when the number of dimensions is significantly greater than the number of points)[citation needed].
+    * Disadvantages:
+        * With any amount of noise in the dependent variable and with high dimensional multicollinear independent variables, there is no reason to believe that the selected variables will have a high probability of being the actual underlying causal variables. This problem is not unique to LARS, as it is a general problem with variable selection approaches that seek to find underlying deterministic components. Yet, because LARS is based upon an iterative refitting of the residuals, it would appear to be especially sensitive to the effects of noise. This problem is discussed in detail by Weisberg in the discussion section of the Efron et al. (2004) Annals of Statistics article.[2] Weisberg provides an empirical example based upon re-analysis of data originally used to validate LARS that the variable selection appears to have problems with highly correlated variables.
+        * Since almost all high dimensional data in the real world will just by chance exhibit some fair degree of collinearity across at least some variables, the problem that LARS has with correlated variables may limit its application to high dimensional data.
+
+### Exercises
+
+
+
+## Lecture 4
+**Literature:** ESL Chapter 4.3, 4.4, 5.1 and 5.2
+
+**Topics introduced:**
+
+* Linear discriminant analysis
+    * Classification
+        * Based on probability of class belonging
+    * decision boundary
+        * Linear: Common covariance matrix structure
+        * Quadratic: different covariance matrix structure
+    * LDA does not weigth the observation far from the decision line.. This means thatLDA is more prone to bad ass outliers which may affect the decision line(s)!
+    * Regularization: 
+        * Make a compromise between LDA and QDA: $\hat{\sum_k}(\alpha)=\alpha\hat{\sum_k}+(1- \alpha)\hat{\sum}$
+        * Shrink the covariance towards its diagonal: $\hat{\sum_k}(\gamma)=\gamma\hat{\sum}+(1- \gamma)diag(\hat{\sum})$
+        * Shrink the covariance towards a scalar covariance structure: $\hat{\sum_k}(\gamma)=\gamma\hat{\sum}+(1- \gamma)\hat{\sigma^2}I$
+
+* Logistic regression
+    * Fewer assumptions then LDA
+    * More robust than LDA
+        * weigth the observations far from its decision lines.
+    * Just as easy
+* Basis Expansion
+    * WHEN it is NOT the case of a linear model setup.
+        * 
+    * General non-linear transforms
+    * Cubic splines
+
+
+### Key points
+
+* Linear discriminant analysis (LDA) vs. logistic regression.
+    * What for
+    * How do they compare
+* Basis expansion
+    * What is it?
+        *  Basis expansion opens for non-linear modeling of data using linear methods.
+        * Assume 2D data -> it isi possible to create several interval along the first axises fit variuos functions along this axsis. 
+        * using the hince function it is possible to create pice-wise polynomials. then you have some tough transisitions and but a continuoes function..
+        * Cubic splines, then you raise the colum to second and third order and also for the hince functions.. you have an continous first and second order differentiable "smooth" function.
+    * how did we use it?
+        * these principles can be used on the LDA
+
+### Exercises
+    
+    
+## Lecture 5
+**Literature:** ESL Chapter 4.5, 12.1, 12.2 and 12.3.1
+
+**Topics introduced:**
+
+* Convex optimization using Lagrange multipliers
+    * The gradients must be porportional to each others gradient.
+    * Larange:
+        * primal:  max_x min_l Lp
+        * dual: min_l max_x lp
+        * often is the solution for these the same..
+            * Slater’s condition: The primal and dual optimization problems are equivalent when f is concave and constraints are convex.
+* Optimal separating hyperplanes
+    * seperates two classes and maximixing the distance to the closet two point for either of the two classes -> unique solution if the data are seperateble
+    * if there is a clear seperation the solution will always be similar to the logistic regression.
+    * if data is not seperatly there will be no feaseable solution. 
+    * Binary classification
+    * Some data can perfectly be seperated by a strigth line with no overlap. Each class of each side of the line
+    * Can be modified into support vector machines -> strong tool
+
+* Support vector machines
+    * Most classification problems have overlapping classes.
+    * OSH is modified hence to overlapping data -> the data point will only overlap the margin and not the decision line.
+    * lambda from the lagrange multipler will be increased -> noisier solution (more over-fitting)
+    * Larange: the gradient of the constrints and of the cost must be parallel. 
+    * SVM combined with the kernel trick -> a very flexible classifier!!
+    * NB: SVM does not scale above two classes
+
+* Basis expansion and kernels (The kernel trick)
+    * Kernel methods do not do variable selection in any reasonable or automatic way, but with more features than observations there is always a seprating hyperplane
+    * Polynomial, Radial, Gaussian, Nerual network -> this can provide a infinite dimensional feature expansion
+        * transformed features -> calculate inner products -> cheap math
+
+
+### Key points
+
+### Exercises
+
+    
+    
+    
+## Lecture 6
+**Literature:** ESL Chapter 14.5.1, 14.5.5 and 3.5
+
+**Topics introduced:**
+
+* Principal component analysis (PCA)
+    * the PCA can be computed by the Singular value decomposition (SVD)
+        * SVD: 
+    * PCa removes multi-colinarity between variables.
+    
+    * 1. Center data by removing the mean 
+    * 2. Rotate coordinate system. First axes in direction of maximal variance.
+    * Scores, loadings, variance explained.
+        * pick the number of components which satisfy the you wanted variance explianed.
+         OR keep the eigenvectors which is greather than 1.. else do a scree-plot
+         * loadings (the direction vectors): plot them as first and second PC. variables which are far away from the (0,0) is explained by these two first PC. close to (0,0) is not explained by the two first PC.
+         * Scatter plots can gain insigt of clusters and outliers -> remember to use compareable axsis.
+    * Explore examples of typical (common) observations based on your data set.
+    * Unsupervised, no outcome variable - let data speak for itself.
+        * Structure in data
+        * Outlier detection
+        * Dimensionality reduction (data compression)
+    * LDA: USe PCA to separate the classes:
+        * Traning
+            * Center the data
+            * Rotate to principal components
+            * Scale to std. variance -> standardize
+            * Translate back to the original scale
+        * prediction
+            * Transform to the PCA-space
+            * Compute distance to each of the centriods -> assign class
+
+* Sparse PCA
+    * Thresholding of loadings
+    * Varimax rotation of loadings
+    * Estimation using the Elastic net
+    
+* Principal component regression (PCR)
+    * Doesn not shrinking the values but excluding the components with the smallest egienvalues.
+    * Linear regression on the PCA scores: $y = \beta_0+ [s_1,...,s_M]\beta + e$
+        * PCR handles n < p by operating on a subset of PCs.
+        * PCR performs similar to ridge regression
+        * Equivalent to OLS when M = p
+    * wiki
+        * In statistics, principal component regression (PCR) is a regression analysis technique that is based on principal component analysis (PCA). Typically, it considers regressing the outcome (also known as the response or the dependent variable) on a set of covariates (also known as predictors, or explanatory variables, or independent variables) based on a standard linear regression model, but uses PCA for estimating the unknown regression coefficients in the model.
+        * In PCR, instead of regressing the dependent variable on the explanatory variables directly, the principal components of the explanatory variables are used as regressors. One typically uses only a subset of all the principal components for regression, thus making PCR some kind of a regularized procedure. Often the principal components with higher variances (the ones based on eigenvectors corresponding to the higher eigenvalues of the sample variance-covariance matrix of the explanatory variables) are selected as regressors. However, for the purpose of predicting the outcome, the principal components with low variances may also be important, in some cases even more important.[1]
+        * One major use of PCR lies in overcoming the multicollinearity problem which arises when two or more of the explanatory variables are close to being collinear.[2] PCR can aptly deal with such situations by excluding some of the low-variance principal components in the regression step. In addition, by usually regressing on only a subset of all the principal components, PCR can result in dimension reduction through substantially lowering the effective number of parameters characterizing the underlying model. This can be particularly useful in settings with high-dimensional covariates. Also, through appropriate selection of the principal components to be used for regression, PCR can lead to efficient prediction of the outcome based on the assumed model.
+
+* Partial Least Squares
+    * Supervised method with latent variable structure.
+    * Seeks directions which have high variance and have high correlation with the response.
+    * Tune number of PLS components.
+    * wiki:
+        * Partial least squares regression (PLS regression) is a statistical method that bears some relation to principal components regression; instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. Because both the X and Y data are projected to new spaces, the PLS family of methods are known as bilinear factor models. Partial least squares Discriminant Analysis (PLS-DA) is a variant used when the Y is categorical.
+
+* Caninical correlation analysis
+    * Finds associations between two data sets: Examen the relation between two data sets.
+    * wiki:
+
+### Key points
+* Principal components depends on the scaling of the inputs -> standardize data..
+* 
+
+### Exercises
+    
+    
+    
+    
+## Lecture 7
+**Literature:** ESL Chapter 14.3
+
+**Topics introduced:**
+
+* Cluster analysis
+    * Seeing structure in data and here by get an under standing of this data set.
+    * dimensionality reduction
+    * Outlier detection
+    * Unsupervised classification
+        * Separating or clustering observations:
+        * Group data in clusters.
+        * Observations that ar "near" each other should belong to the same class/cluster.
+        * This can help us unveil an unknown structure in data.
+* Similarity and dissimilarity measures
+    * Similarity takes a large value when points are close.
+    * Dissimilarity takes a large value when points are far apart. This reflects the distance between observations.
+    * Metric:
+        * How to handle categorical variables? squraed form may not apply.
+        * Euclidean distance: $\sqrt{\sum_{k=p}^p(x_{ik}-x_{jk})^2}$
+        * Manhatten distance (aka. the city block distance): $\sum_{k=p}^p|x_{ik}-x_{jk}|$
+        * Mahalanobi distance:
+        * Tanimoto distance:
+        * Weighted distance:
+        
+* K-means clustering
+    * Determine the number of clusters K
+        * use the nature of this problem
+        * Gab-statistic -> the statistic heuristic for the "elbow" 
+        * try different number of clusters, calculate the averge distance to the centroid. plot these as a function of the averge distance and look for the "elbow".
+        * you cannot CV because you will remove some observations and the algorithm can not work on the "ground truth".
+    * A more heavy algorithm is the K-medoids (Partitioning Around Medoids). This one is more robust to outliers.
+* Hieracrchical clustering
+    * Generates a tree of observations.
+    * You can start from botton up or top down.
+    * Each level of the tree reflects one number of clusters.
+    * From all data in one cluster down to one observation in each cluster
+
+* Validation and model selection
+    * WHY not CV?
+    * Use gap-statistics to selcted the number of clusters, or Goodness-of-fit measures (Chi-squared statistics, Kolmogorov-Smirnov statistics, AIC and BIC) or biological or physical interpretation.
+        * Gap-statistics: 
+* Gaussian mixture
+    * Data belongs to one of several Gaussian distributions
+    * A latent random variable selects which distribution the observation comes from.
+    * This gives a complicated likelihood function.
+    * Easily solved using the EM algorithm
+        * EM: two step procedure:
+            * ExLatent variable: Found in M and afterwards used in E.
+            * pectation step: Define the expectation value: Calculate conditional probabilities $T_{ij}$ for $Z_i$ belonging to cluster $j$ using Bayes formula.
+            * Maximization step: Find parameter estimate: Calculate weighted (using $T_{ij}$ ) mean and covariance estimates $\mu$, $\simga$. Calculate mixing coefficients $\tau$ based on mean of weights.
+    * Unknown model parameters:
+        * $\tau$, $\mu$ and $\sigma$ for each of the clusters
+    * The producre is computationally heavy.. therefore it is 
+
+
+
+### Key points
+
+* These algorithm requries domain knowlegde.
+* 
+
+### Exercises
+
+    
+    
+## Lecture 8
+**Literature:** ESL Chapter 9.2
+
+**Topics introduced:**
+
+* Classification And Regression Trees (CART)
+    * Both for regression and classification: averaging and majority vote
+    * Advantages:
+        * Interpretability, tree defines a set of rules which are easy to follow.
+        * Handles missing data.
+        * Can take both continuous and categorical variables as input.
+    * Disadvantages:
+        * Deep trees have high variance and low bias.
+        * Small trees have low variance and high bias.
+        * New data might completely change the shape of the tree.
+* Regression trees
+    * Partition the feature space into rectangles and fit simple model (a constant).
+    
+    * Split:
+        * A good split
+            * For each interval: predict y_hat and compute RSS -> compare the RSS -> find the interval with highest RSS..
+            *  This can introduce many possible splits: try them all and chose the one with the lowest RSS in this currect interval.
+            * categorical variables has so many split combinations where $k$ is the number of levels in the categorical variable: $2^{k-1}-1$
+        * How large must we grow the tree?? 
+            * Stop splitting when nodes contains less the X observations? What is a good value for X?
+            * maybe it could be something about the dispersion in each interval?
+            * BUT we do not know how much value the the split can provide to the tree -> keep splitting -> pruning:
+                * Pruning: Prune the non-terminal node whose sub-tree gives the smallest per node reduction in RSS. e.g. Weakest-link pruning: prune branches that contribute the least to lowering RSS.
+                * Stop pruning? -> CV 
+    * Bias and variance trade-off:
+        * full trees -> high variance -> low bias
+        * full trees -> greater std compared to the pruned trees
+        * but you need some splits to capture the structure in your data.
+    * Model error: $RSS$ as a measure of node impurity
+    * Partition the feature space into rectangles and fit simple model (constant) in each one.
+* Classifications trees
+    * The only difference is: the criteria for splitting nodes and pruning the tree
+    * Majority voting is used to determine the given class among multiple classes..
+    * Model error: 
+        * Missclassification rate
+        * Gini-index
+        * Cross-entropy
+        * the predictive performance is not that different for each metric.
+    * Gini and entropy are differential and more sensitive to changes in the node probabilities
+    * 
+    * Standard pratices:
+        * Gini index as split criterion when building the tree 
+        * use missclassification rate as criterion when deciding the node to prune.
+        
+
+
+
+
+### Key points
+
+* Interpretability is very high!!
+* What is a good split:
+    * USE CV - an independent test set
+    * How many splits?
+    * How large do we grow the tree?
+    * Pruning rule:
+        * Where to start 
+        * When to stop
+* Missing values:
+    * if categorical: add "missing" to the categories
+    * if numeric: impute mean or median or other sophisticated methods.
+    * Use a surrogate variable for the split, maybe the next most important variable.
+
+    
+
+### Exercises
+
+
+    
+    
+    
+    
+## Lecture 9
+**Literature:** ESL Chapter 8.7, 10.1 and 15
+
+**Topics introduced:**
+
+* Bootstrapping
+    * You have some observations and draw some samples with replacement.
+    * the samples which not occor in your bootstrap replicate is the OOB.
+
+* Bagging
+    * Fit many models of the bootstrap replicated data. their outputs will be aggregated into one output. 
+    * VERY GOOD FOR tree models with High-variance and low-bias -> the averages will provide unbiased and reducing the variance. 
+        * Regression: trees are fitted to bootstrap samples of the training data. The result is the average over all of the trees.
+        * Classification: A committee of trees each cast a vote for the class - and the majority vote is used as the prediction.
+        
+* Boosting (Focus on the mistakes there have been made...)
+    * Weak classifiers -> focus on small tress. We want a model with less variance for trade of some bias.
+    * small trees: Small trees have low variance and high bias -> but boosting will skrink the bias.e
+    * the trees are NOT independent -> you cannot parallize the approach. -> this is a serial approach 
+    * lots of smal trees -> each tree performs a weigthed vote..
+    * ADAboost (Binary case)
+        * How does it works?: serial combining lots of weak classifiers -> just better than random geussing
+            * Fit a classifier to the traning data using the provied weight.
+            * compute the weigthed error from the new tree and compute $\alpha_m = log(\frac{1-err_m}{err_m})$
+            * update the wiethgs for the traning set.
+            * repeat for a new tree $m$
+        * output: $G(x) = sign(\sum_{m=1}^M\alpha_mG_m(x))$
+        
+* Random forests
+    * Refinement of bagged trees.
+    
+    * The KEY ingredient: 
+        * Random forest tries to improve on bagging by decorrelating the trees without increasing the variance too much. -> minimizes $q$
+        * Pick a random subset of variables as random candididates for splitting. -> reducing the number of candididates for each split will reduce the correlation between trees!
+        * few hyperparameters to tune!!
+    
+    * Model selection: There is heuristics for choosing parameters -> tune to you problem domain!
+        * CV in iid. test -> REmember to use the OOB for each tree: 
+        * Hyperparameters: pruning, m_try, n_trees
+        * minimize the misclassification rate or the RSS!
+        
+    * Variable importance
+        * The improvement in each split in the split-criterion is importance measure of importances of the attribute.
+        * Mis-leading variables: if the proportion is large -> the subset of having "important" candididates for splitting is small and will perform worse. The boosting trees handles better a large number of noise variables!
+
+
+### Key points
+
+* bagging and random forests are suitable for n << p problems.
+* when p > n -> works -> but troubles when the proportion of noise variables is high!
+
+### Exercises
+    
+    
+    
+## Lecture 10
+**Literature:** ESL Chapter 14.6, 14.7. Article “Sparse Coding” Nature
+
+**Topics introduced:**
+
+
+* A Short Introduction to Unsupervised learning and Factor analysis
+    * Decomposition - the process of finding hidden internal representation of the data, i.e., to decompose the data into its internal representations.
+    * This is a inter-dependence technique
+    * Data compression: 
+        * Identidy the latent sorcues
+        * Find the importance variable
+        * Summarises the inter-relationship
+    * NB: 
+        * Works best on contuinous data
+        
+* Non-negative Matrix Factorization:
+    * NMF is an anternate to PCA which works perfectly for non-negaive problems such as images. 
+    * the main idea is to create the reduced ($r$) feature space -> decompose to a lower dimension.
+    * There is one design parameter in this application which is $r <= p$  where $p$ is the total number of features in the e.g. image. 
+        * if $r = p$ is it possible to obtain a perfect reconstruction -> but then you don't do the dimensionality reduction which is core of the procedure.
+    * WHY: 
+        * reduce the feature space -> represent it with less representable compoenents
+        * non-negativ constraint -> weel suited for images or document-term-matrix (text).
+        * only additive operations are allowed -> sparsity 
+    * HOW: 
+        * There exsist many solutions -> 
+        * train by: Multiplicative updates for NMF
+        * train by: coordinate descent
+
+* Archetypal Analysis
+    * The priciple are somehow similar to the k-means algorithm. 
+    * $X \approx WH$ is respresented as a convex combination of the data points $j(W,B) = \left\| X-WBX  \right\|^2$.
+    * The approach is quite similar to the NMF but this one is focusing the the columns instead of the rows compared to the NMF.
+    * Archetypal analysis extracts the dominant convex hull of the data cloud..
+
+* Independent Component Analysis
+    * The basis idea in ICA starts out the be the basis factor analysis solution and afterwards we want to rotate the solution in order to obtain the best independent components -> S is oncorrelated -> NON-gaussian -> long tails which this is the oppitate of PCA.
+    * Assumptions:
+        * the observaables are mutual independent
+        * there is a latent structure -> which can be describt by linear different combination in the observable. 
+        * sketch the pool-party problem
+            * There are three speakers which are talking independently and these are observed by three microphones. All microphoes can hear the three speakers and each speaker can be derived as linear combination in each microphone.
+            * -> discretise the recordings for microphone, each mic (9feature) as rows and discritesed as columns.
+            * -> the latent representation can be projected onto each speaker.
+    * Measure of Gaussanity: -> Kurtosis
+    * ICA directions -> UNIFORM
+    
+
+* Sparse Coding
+    * The mean idea with spare coding is to find the latent representation $h^{(t)}$ which minimises the reconstruction error. 
+    * The sparsity will force elements towards zero -> using the L1 norm -> as in the lasso regression.
+    The cost function which needs to be optimized is: $C(S) = \frac{1}{2}\left\| x^{(t)} - Dh^{(t)}   \right\|^2 + \lambda\left| h^{(t)}  \right|_1  $, where $D$ is sparse dictorinary matrix with a constrained norm 1 -> avoid $h^{(t)}$ becomes small
+    * then a linear combination of $D$ and the latent value $h^{(t)}$ will perform the reconstrunction.
+
+### Key points
+
+* Dimensionality reduction
+* Estimated the latent feature space
+
+### Exercises
+
+
+    
+    
+    
+    
+## Lecture 11
+**Literature:** WireOverview.pdf
+
+**Topics introduced:**
+
+*  Why bother about tensor decomposition?
+    * Tensor decomposition admit uniqueness of the decomposition without additional constraints such as orthogonality and independence.
+    * Tensor decomposition methods can identify components even when facing very poor signal to noise ratios (SNR) and when only a relatively small fraction of all the data is observed.
+    * Tensor decomposition can explicitly take into account the multi- way structure of the data that would otherwise be lost when analyzing the data by collapsing some of the modes to form a matrix.
+
+* Tensor vs. matrix decomposition
+    * pros:
+        * Uniqueness
+        * component identification even when only a relatively small fraction of all the data is observed
+        * multi-way decomposition techniques can explicitly take into accound the multi-way structire of the data that would otherwise be lost when analyzing the data by matrix factorization approcahes by collapsing some of the modes
+    * cons:
+        * Its geometro is not yet fully understood
+        * The occurrence of so-called degenerate solutions -> not exsisting solution
+        * Lack of guarantee of finding the optimal solution
+
+* Tensor Nomenclature
+    * What
+        * std. notation and mathematical operations
+        * A low-rank tensor decomposition is unique in ways that matrix decomposition are not??
+        * They are inter-correlated -> share the same row and column space
+    * N-mode multiplication
+    * The SVD as n-mode multiplication
+    * Kronecker and Khatri-Rao product
+
+* Tucker Decomposition
+    * This is a higher order SVD
+    * the solution is not unique because there can be added on invertable matrix Q
+    * If the components of the Tucker decomposition are constraint to orthogonal or orthonomal -> decomprossion of feature space
+    * formula: $X^{ I,J,K }\approx G^{L,M,N} \times_1A^{J,L} \times_2 B^{J,M}\times_3^{K,N}$
+        * The core tensor $G$ captures all linear interactions between the components of all models
+    * WIKI: 
+        * The model parameters are estimated in such a way that, given fixed numbers of components, the modelled data optimally resemble the actual data in the least squares sense. The model gives a summary of the information in the data, in the same way as principal components analysis does for two-way data.
+
+
+* CandeComp/PARAFAC (CP) aka. parallel factor analysis
+    * In PARAFAC the core tensor is restricted to be "diagonal" -> Tucker(L = M = N)
+    * "Expresses a tensor as a linear combination of simple tensors"
+    * Property: uniqueness or identifiability
+    * This is the special case of Tucker decomposition where the core tensor G is constraint to be superdiagonal (The diagonal of the matrix which lies above and to the rigth of the main diagonal)
+    * Each modolity of the core tensor G is $L = M = N$. 
+    * Estimated by:
+        * alternating least squares (ALS), or block coordinate descent
+        * non-linear solvers: e.g., Gauss-Newton methods
+        
+* Core Consistency Diagnostic
+    * A heuristic for evaluating the number of components.
+    * from KU: The core consistency diagnostic helps in choosing the proper model complexity. Further, no a priori assumptions regarding residuals are required, since it is the deterministic and systematic rather than the probabilistic part of the data that is being used for assessing the model. The results shown here for data of quite different nature indicate that it has a versatile applicability and it is suggested that it is used to supplement other methods for determining dimensionality.
+
+* Missing values
+    * To obtain low rank representation. 
+    * The CP decomposes X into R rank-one tensors. These rank-one tensors are just a vector in each dimension (of size I,J,K). So the number of parameters are $R(I+J+K)$. This is way lower than the number of entries in X, with size $(IJK)$
+
+
+
+### Key points
+
+* We presented the two key tensor decompositions with applications in machine learning.
+    * The CP decomposition:
+        * is usually unique and hence easy to interpret;
+        * can be applied in recommender systems; and
+        * can learn the parameters of some latent variable models.
+    * The orthogonal Tucker decomposition:
+        * is easy to compute;
+        * can reveal latent features in each mode;
+        * is very well-suited for data dimensionality reduction;
+        * has been applied for recommender system tasks and compression of deep neural networks.
+    
+
+### Exercises
+
+
+    
+    
+    
+    
+## Lecture 12
+**Literature:** ESL Chapter 11.1-11.5 and 14.4
+
+**Topics introduced:**
+
+* Artificial Neural Networks (ANN)
+    * Mathematical functions that are inspired by the function of the human brain.
+    * Advantages:
+        * level of complexity, aka. non-linear decision boundaries
+    * Disadvantages:
+        * Local minima -> use average of multiple ANNs or bagging
+        * Many parameters:
+        * CV is computationally expensive.
+        * 
+    * Model fitting:
+        * back-probagation of the 
+        * Regression: minimizing the SSE
+        * Classification: Minimizing cross-entropy
+
+* Autoencoders
+    * Unsupervised data reduction with ANN
+        * Encoder: The first layer transforms the input into a latent representation.
+        * Decoder: The second layer transforms the latent representation into a reconstruction of the input.
+    * Dimensionality reduction -> if the number of encoders neurons < inputs neurons.
+        * The weights in the encoder represents the pattern used in each latent variable.
+    * Use cases:
+        * autoencoder as pre-traning: learn the latent feature map of the input data -> exchange the decoder layer in the network remove the deco
+        
+* Self organizing maps
+    * Unsupervised clustering quite similar to the k-means algorithm.
+        * Standaridze the data
+        * Projecting of date onto 1D or 2D feature space -> dimensional reduction
+    * SOMs are capeable of doing online learning and batch-learning
+    * Projection of data to a low dimensional space (Neighbor clusters are enforced to lay close to each other also in feature space).
+    * how it works:
+        * detemine the grid size e.g. 4x4 -> 16 neurons in the hidden layer..
+        * do traning in epochs -> increase the radius for each epoch.
+        * for each obsveration
+            * find the node closet to the given observations. compare the "weigths" w.r.t. the "column" features. the distances are found by the euclidian-formulation.
+            * assign the node number to the observation and update the "weigths" to match the "column" features. update the "weigths" of the nodes within the radius
+        * increase the radius and perform another epoch
+ 
+
+
+### Key points
+
+
+    
+
+### Exercises
+
+
+<!--
+## Lecture Case 1
+
+**Topics introduced:**
+
+* Ridge regression: a regularization model 
+* Lasso regression: a regularization and selection model
+* Elastic net:
+* One standard error rule.
+
+### Key points
+
+* OVERFITTING..
+
+## Lecture Case 2
+
+**Topics introduced:**
+
+### Key points
+-->

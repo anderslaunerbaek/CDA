@@ -21,7 +21,7 @@ mean_hat <- as.matrix(dat %>%
     select(-Species), ncol=p) 
 
 
-X[Y==cat_lev[1],]-mean_hat[1,] %*% t(X[Y==cat_lev[1],]-mean_hat[1,])
+# X[Y==cat_lev[1],]-mean_hat[1,] %*% t(X[Y==cat_lev[1],]-mean_hat[1,])
 
 
 X1 <- sweep(X[Y==cat_lev[1],], 2, mean_hat[1,])

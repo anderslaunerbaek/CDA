@@ -12,9 +12,10 @@ summary(lm.ols)
 coef(lm.ols)
 
 # define matrices
-X = as.matrix(cbind(1,df$AGE, df$SEX, df$BMI, 
-                    df$BP, df$S1, df$S2, df$S3, 
-                    df$S4, df$S5, df$S6))
+X <- model.matrix(lm.ols)
+# X = as.matrix(cbind(1,df$AGE, df$SEX, df$BMI, 
+#                     df$BP, df$S1, df$S2, df$S3, 
+#                     df$S4, df$S5, df$S6))
 Y = as.matrix(df$Y)
 
 # calculate OLS

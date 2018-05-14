@@ -39,4 +39,4 @@ table(Y_test, pred)
 
 
 
-
+caret::confusionMatrix(Y_test, pred)

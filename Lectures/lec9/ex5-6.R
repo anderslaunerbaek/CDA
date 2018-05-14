@@ -13,7 +13,7 @@ require(gbm)
 
 #########################################################################################################
 set.seed(433)
-Z=readMat(file.path("zipdata.mat"))
+Z=readMat("~/DTU/Courses/CDA/Lectures/lec9/zipdata.mat")
 X=Z$X
 y=Z$y
 N = dim(X)[1]

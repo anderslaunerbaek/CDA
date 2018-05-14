@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.21)  16 APR 2018 11:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.21)  1 MAY 2018 19:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1130,24 +1130,118 @@ LaTeX Font Info:    Redeclaring math symbol \eth on input line 57.
 LaTeX Font Info:    Redeclaring math symbol \mho on input line 58.
 )
 LaTeX Font Info:    Redeclaring math symbol \varnothing on input line 204.
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks29
+\t@pgfplots@tokb=\toks30
+\t@pgfplots@tokc=\toks31
+\pgfplots@tmpa=\dimen263
+\c@pgfplots@coordindex=\count188
+\c@pgfplots@scanlineindex=\count189
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count190
+)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count191
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count192
+\t@pgfplotstable@a=\toks32
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count193
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen264
+\pgfdecoratedremainingdistance=\dimen265
+\pgfdecoratedinputsegmentcompleteddistance=\dimen266
+\pgfdecoratedinputsegmentremainingdistance=\dimen267
+\pgf@decorate@distancetomove=\dimen268
+\pgf@decorate@repeatstate=\count194
+\pgfdecorationsegmentamplitude=\dimen269
+\pgfdecorationsegmentlength=\dimen270
+)
+\tikz@lib@dec@box=\box103
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count195
+\pgfplots@xmin@reg=\dimen271
+\pgfplots@xmax@reg=\dimen272
+\pgfplots@ymin@reg=\dimen273
+\pgfplots@ymax@reg=\dimen274
+\pgfplots@zmin@reg=\dimen275
+\pgfplots@zmax@reg=\dimen276
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
+))) (/usr/local/texlive/2017/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen277
+\WF@size=\dimen278
+\c@WF@wrappedlines=\count196
+\WF@box=\box104
+\WF@everypar=\toks33
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen279
+\captionmargin@=\dimen280
+\captionwidth=\dimen281
+\caption@tempdima=\dimen282
+\caption@indent=\dimen283
+\caption@parindent=\dimen284
+\caption@hangindent=\dimen285
+)
+Package caption Info: KOMA-Script document class.
+\c@ContinuedFloat=\count197
+Package caption Info: hyperref package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+\c@subfigure=\count198
+\c@subtable=\count199
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks34
+\footnotemargin=\dimen286
+\c@pp@next@reset=\count266
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip88
-\enit@outerparindent=\dimen263
-\enit@toks=\toks29
-\enit@inbox=\box103
-\enitdp@description=\count188
+\enit@outerparindent=\dimen287
+\enit@toks=\toks35
+\enit@inbox=\box105
+\enitdp@description=\count267
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip89
+\multirow@cntb=\count268
+\multirow@dima=\skip90
+\bigstrutjot=\dimen288
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count269
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks30
-\inpenc@posthook=\toks31
+\inpenc@prehook=\toks36
+\inpenc@posthook=\toks37
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
- (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -1456,81 +1550,81 @@ Now handling font encoding MDA ...
    defining Unicode char U+2423 (decimal 9251)
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen264
-\lightrulewidth=\dimen265
-\cmidrulewidth=\dimen266
-\belowrulesep=\dimen267
-\belowbottomsep=\dimen268
-\aboverulesep=\dimen269
-\abovetopsep=\dimen270
-\cmidrulesep=\dimen271
-\cmidrulekern=\dimen272
-\defaultaddspace=\dimen273
-\@cmidla=\count189
-\@cmidlb=\count190
-\@aboverulesep=\dimen274
-\@belowrulesep=\dimen275
-\@thisruleclass=\count191
-\@lastruleclass=\count192
-\@thisrulewidth=\dimen276
+\heavyrulewidth=\dimen289
+\lightrulewidth=\dimen290
+\cmidrulewidth=\dimen291
+\belowrulesep=\dimen292
+\belowbottomsep=\dimen293
+\aboverulesep=\dimen294
+\abovetopsep=\dimen295
+\cmidrulesep=\dimen296
+\cmidrulekern=\dimen297
+\defaultaddspace=\dimen298
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen299
+\@belowrulesep=\dimen300
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen301
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2017/05/19 v2.7g A comprehensive (SI) units package
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks32
-\ex@=\dimen277
+\@emptytoks=\toks38
+\ex@=\dimen302
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen278
-\extrarowheight=\dimen279
-\NC@list=\toks33
-\extratabsurround=\skip89
-\backup@length=\skip90
+\col@sep=\dimen303
+\extrarowheight=\dimen304
+\NC@list=\toks39
+\extratabsurround=\skip91
+\backup@length=\skip92
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2017/05/13 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box104
-\l__siunitx_tmp_dim=\dimen280
-\l__siunitx_tmp_int=\count193
-\l__siunitx_number_mantissa_length_int=\count194
-\l__siunitx_number_uncert_length_int=\count195
-\l__siunitx_round_int=\count196
-\l__siunitx_process_decimal_int=\count197
-\l__siunitx_process_uncertainty_int=\count198
-\l__siunitx_process_fixed_int=\count199
-\l__siunitx_process_integer_min_int=\count266
-\l__siunitx_process_precision_int=\count267
-\l__siunitx_group_min_int=\count268
-\l__siunitx_angle_marker_box=\box105
-\l__siunitx_angle_unit_box=\box106
-\l__siunitx_angle_marker_dim=\dimen281
-\l__siunitx_angle_unit_dim=\dimen282
-\l__siunitx_unit_int=\count269
-\l__siunitx_unit_denominator_int=\count270
-\l__siunitx_unit_numerator_int=\count271
-\l__siunitx_unit_prefix_int=\count272
-\l__siunitx_unit_prefix_base_int=\count273
-\l__siunitx_unit_prefix_gram_int=\count274
-\l__siunitx_number_product_int=\count275
-\c__siunitx_one_fill_skip=\skip91
-\l__siunitx_table_unit_align_skip=\skip92
-\l__siunitx_table_exponent_dim=\dimen283
-\l__siunitx_table_integer_dim=\dimen284
-\l__siunitx_table_mantissa_dim=\dimen285
-\l__siunitx_table_marker_dim=\dimen286
-\l__siunitx_table_result_dim=\dimen287
-\l__siunitx_table_uncert_dim=\dimen288
-\l__siunitx_table_fill_pre_dim=\dimen289
-\l__siunitx_table_fill_post_dim=\dimen290
-\l__siunitx_table_fill_mid_dim=\dimen291
-\l__siunitx_table_pre_box=\box107
-\l__siunitx_table_post_box=\box108
-\l__siunitx_table_mantissa_box=\box109
-\l__siunitx_table_result_box=\box110
-\l__siunitx_table_number_align_skip=\skip93
-\l__siunitx_table_text_align_skip=\skip94
+\l__siunitx_tmp_box=\box106
+\l__siunitx_tmp_dim=\dimen305
+\l__siunitx_tmp_int=\count274
+\l__siunitx_number_mantissa_length_int=\count275
+\l__siunitx_number_uncert_length_int=\count276
+\l__siunitx_round_int=\count277
+\l__siunitx_process_decimal_int=\count278
+\l__siunitx_process_uncertainty_int=\count279
+\l__siunitx_process_fixed_int=\count280
+\l__siunitx_process_integer_min_int=\count281
+\l__siunitx_process_precision_int=\count282
+\l__siunitx_group_min_int=\count283
+\l__siunitx_angle_marker_box=\box107
+\l__siunitx_angle_unit_box=\box108
+\l__siunitx_angle_marker_dim=\dimen306
+\l__siunitx_angle_unit_dim=\dimen307
+\l__siunitx_unit_int=\count284
+\l__siunitx_unit_denominator_int=\count285
+\l__siunitx_unit_numerator_int=\count286
+\l__siunitx_unit_prefix_int=\count287
+\l__siunitx_unit_prefix_base_int=\count288
+\l__siunitx_unit_prefix_gram_int=\count289
+\l__siunitx_number_product_int=\count290
+\c__siunitx_one_fill_skip=\skip93
+\l__siunitx_table_unit_align_skip=\skip94
+\l__siunitx_table_exponent_dim=\dimen308
+\l__siunitx_table_integer_dim=\dimen309
+\l__siunitx_table_mantissa_dim=\dimen310
+\l__siunitx_table_marker_dim=\dimen311
+\l__siunitx_table_result_dim=\dimen312
+\l__siunitx_table_uncert_dim=\dimen313
+\l__siunitx_table_fill_pre_dim=\dimen314
+\l__siunitx_table_fill_post_dim=\dimen315
+\l__siunitx_table_fill_mid_dim=\dimen316
+\l__siunitx_table_pre_box=\box109
+\l__siunitx_table_post_box=\box110
+\l__siunitx_table_mantissa_box=\box111
+\l__siunitx_table_result_box=\box112
+\l__siunitx_table_number_align_skip=\skip95
+\l__siunitx_table_text_align_skip=\skip96
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1649,43 +1743,55 @@ Package: l3keys2e 2017/05/13 LaTeX2e option processing using LaTeX3 keys
 \g__file_internal_ior=\read2
  (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/translator/translator.sty
 Package: translator 2010/06/12 ver 1.10
- (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/translator/translator-language-mappings.tex)))
-(/Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.aux)
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/translator/translator-language-mappings.tex))) (/usr/local/texlive/2017/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks40
+\XKV@tempa@toks=\toks41
+)
+\XKV@depth=\count291
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\c@@todonotes@numberoftodonotes=\count292
+) (/Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.aux)
 \openout1 = `doc_dtuposter.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 40.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 50.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count276
-\scratchdimen=\dimen292
-\scratchbox=\box111
-\nofMPsegments=\count277
-\nofMParguments=\count278
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count279
-\MPscratchDim=\dimen293
-\MPnumerator=\count280
-\makeMPintoPDFobject=\count281
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count293
+\scratchdimen=\dimen317
+\scratchbox=\box113
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen318
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks43
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -1733,39 +1839,46 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `pdftex' on input line 40.
-Package crop Info: detected driver: `pdftex' on input line 40.
-Package crop Info: using `pdftex' graphics driver on input line 40.
+Package crop Info: requested driver: `pdftex' on input line 50.
+Package crop Info: detected driver: `pdftex' on input line 50.
+Package crop Info: using `pdftex' graphics driver on input line 50.
 <template/tex_dtu_compute_b_uk.pdf, id=12, 323.2075pt x 26.0975pt>
 File: template/tex_dtu_compute_b_uk.pdf Graphic file (type pdf)
  <use template/tex_dtu_compute_b_uk.pdf>
-Package pdftex.def Info: template/tex_dtu_compute_b_uk.pdf used on input line 40.
+Package pdftex.def Info: template/tex_dtu_compute_b_uk.pdf used on input line 50.
 (pdftex.def)             Requested size: 1524.23901pt x 123.05817pt.
  <template/tex_dtu_logo.pdf, id=13, 38.98967pt x 56.87248pt>
 File: template/tex_dtu_logo.pdf Graphic file (type pdf)
  <use template/tex_dtu_logo.pdf>
-Package pdftex.def Info: template/tex_dtu_logo.pdf used on input line 40.
+Package pdftex.def Info: template/tex_dtu_logo.pdf used on input line 50.
 (pdftex.def)             Requested size: 126.61476pt x 184.71184pt.
  <template/tex_dtu_frise.pdf, id=14, 959.585pt x 353.32pt>
 File: template/tex_dtu_frise.pdf Graphic file (type pdf)
  <use template/tex_dtu_frise.pdf>
-Package pdftex.def Info: template/tex_dtu_frise.pdf used on input line 40.
+Package pdftex.def Info: template/tex_dtu_frise.pdf used on input line 50.
 (pdftex.def)             Requested size: 453.72049pt x 167.06319pt.
-\AtBeginShipoutBox=\box112
-Package hyperref Info: Link coloring OFF on input line 40.
+\AtBeginShipoutBox=\box114
+Package hyperref Info: Link coloring OFF on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count282
+\c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into your preamble.
+ on input line 50.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
- (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.dfu
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.dfu
 File: ts1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -1841,70 +1954,262 @@ Dictionary: translator-basic-dictionary, Language: English
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2017/05/19 v2.7g siunitx: Abbreviated units
 )
-\c__siunitx_mathsf_int=\count283
-LaTeX Font Info:    Calculating math sizes for size <35> on input line 40.
-LaTeX Font Info:    Try loading font information for OT1+zavm on input line 40.
+\c__siunitx_mathsf_int=\count300
+LaTeX Font Info:    Calculating math sizes for size <35> on input line 50.
+LaTeX Font Info:    Try loading font information for OT1+zavm on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/ot1zavm.fd
 File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
 )
-LaTeX Font Info:    Try loading font information for OML+zavm on input line 40.
+LaTeX Font Info:    Try loading font information for OML+zavm on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/omlzavm.fd
 File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zavm on input line 40.
+LaTeX Font Info:    Try loading font information for OMS+zavm on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/omszavm.fd
 File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
 )
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 40.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 33.60023pt on input line 40.
+(Font)              scaled to size 33.60023pt on input line 50.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 25.53598pt on input line 40.
+(Font)              scaled to size 25.53598pt on input line 50.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 20.16034pt on input line 40.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 40.
+(Font)              scaled to size 20.16034pt on input line 50.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 33.60023pt on input line 40.
+(Font)              scaled to size 33.60023pt on input line 50.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 25.53598pt on input line 40.
+(Font)              scaled to size 25.53598pt on input line 50.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 20.16034pt on input line 40.
-LaTeX Font Info:    Try loading font information for U+zavm on input line 40.
+(Font)              scaled to size 20.16034pt on input line 50.
+LaTeX Font Info:    Try loading font information for U+zavm on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-\c__siunitx_mathtt_int=\count284
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 40.
+\c__siunitx_mathtt_int=\count301
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 50.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
-Class dtuposter Info: Setting font size: {100} {120} {1} on input line 42.
+Class dtuposter Info: Setting font size: {100} {120} {1} on input line 52.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 60} { 70} {1} on input line 43.
+Class dtuposter Info: Setting font size: { 60} { 70} {1} on input line 53.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 48} { 60} {1} on input line 44.
+Class dtuposter Info: Setting font size: { 48} { 60} {1} on input line 54.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 51.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 52.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 54.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 55.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./template/tex_dtu_compute_b_uk.pdf> <./template/tex_dtu_logo.pdf> <./template/tex_dtu_frise.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 63.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 63.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) <./Figures/clear_example.jpg, id=18, 706.64pt x 578.16pt>
+File: ./Figures/clear_example.jpg Graphic file (type jpg)
+ <use ./Figures/clear_example.jpg>
+Package pdftex.def Info: ./Figures/clear_example.jpg used on input line 69.
+(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
+ <./Figures/foggy_example.jpg, id=19, 706.64pt x 578.16pt>
+File: ./Figures/foggy_example.jpg Graphic file (type jpg)
+ <use ./Figures/foggy_example.jpg>
+Package pdftex.def Info: ./Figures/foggy_example.jpg used on input line 72.
+(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 74.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 74.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 102.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 102.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) (./Figures/PCA.tex
+LaTeX Font Info:    Calculating math sizes for size <17.5> on input line 285.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 16.80011pt on input line 285.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 12.76797pt on input line 285.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 10.08017pt on input line 285.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 16.80011pt on input line 285.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 12.76797pt on input line 285.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 10.08017pt on input line 285.
+)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 114.
+See the caption package documentation for explanation.
+
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 114.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+LaTeX Font Info:    Calculating math sizes for size <15> on input line 114.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 14.4001pt on input line 114.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 10.94398pt on input line 114.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 8.64014pt on input line 114.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 14.4001pt on input line 114.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 10.94398pt on input line 114.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64014pt on input line 114.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 114.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Overfull \vbox (6.70813pt too high) detected at line 130
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 131.
+See the caption package documentation for explanation.
+
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 131.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 131.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 150.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 150.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <35> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 151.
+
+Underfull \hbox (badness 1226) in paragraph at lines 153--154
+[] []\OT1/cmbr/bx/n/35 Data prepa-ra-tion:[][] \OT1/cmbr/m/n/35 The gen-eral con-cern
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+[] []\OT1/cmbr/bx/n/35 Network ar-chi-tec-ture:[][] \OT1/cmbr/m/n/35 Con-sid-er-a-tions
+ []
+
+Package epstopdf Info: Source file: <Figures/conv_net_fig.eps>
+(epstopdf)                    date: 2018-05-01 17:04:50
+(epstopdf)                    size: 94863 bytes
+(epstopdf)             Output file: <Figures/conv_net_fig-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=Figures/conv_net_fig-eps-converted-to.pdf Figures/conv_net_fig.eps>
+(epstopdf)             \includegraphics on input line 159.
+runsystem(repstopdf --outfile=Figures/conv_net_fig-eps-converted-to.pdf Figures/conv_net_fig.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <Figures/conv_net_fig-eps-converted-to.pdf>.
+
+./doc_dtuposter.tex:159: Package pdftex.def Error: File `Figures/conv_net_fig-eps-converted-to.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 ...s[width=\textwidth]{Figures/conv_net_fig}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for OT1+cmtl on input line 159.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
+File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
+)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 160.
+See the caption package documentation for explanation.
+
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 160.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 160.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 186.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 186.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Overfull \vbox (6.70813pt too high) detected at line 198
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 199.
+See the caption package documentation for explanation.
+
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 199.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 199.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Overfull \vbox (6.70813pt too high) detected at line 216
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 217.
+See the caption package documentation for explanation.
+
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 217.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 217.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 227.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 227.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <29.16702> on input line 241.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 28.00053pt on input line 241.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 21.28023pt on input line 241.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 16.80048pt on input line 241.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 28.00053pt on input line 241.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 21.28023pt on input line 241.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 16.80048pt on input line 241.
+[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+ <./template/tex_dtu_compute_b_uk.pdf> <./template/tex_dtu_logo.pdf> <./template/tex_dtu_frise.pdf> <./Figures/clear_example.jpg> <./Figures/foggy_example.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
  (/Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 60.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 60.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 246.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 246.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1912,18 +2217,18 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 32000 strings out of 492995
- 652124 string characters out of 6132704
- 807530 words of memory out of 5000000
- 35037 multiletter control sequences out of 15000+600000
- 17270 words of font info for 52 fonts, out of 8000000 for 9000
+ 44282 strings out of 492995
+ 1031090 string characters out of 6132704
+ 1493998 words of memory out of 5000000
+ 47079 multiletter control sequences out of 15000+600000
+ 57767 words of font info for 167 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,10n,69p,10430b,1086s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on /Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.pdf (1 page, 70146 bytes).
+ 64i,21n,100p,10430b,2460s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrsl17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
+Output written on /Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.pdf (1 page, 324969 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 105 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

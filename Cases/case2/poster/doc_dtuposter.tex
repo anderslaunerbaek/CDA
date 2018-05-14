@@ -8,7 +8,7 @@
 %==========================================
 %===  details and poster setup
 \documentclass[
-    ,title     = {{Decomposition of natural images}}
+    ,title     = {{Methods for image classification}}
     ,longtitle
 %    ,author    = {{Anders Launer Bæk}}
 %    ,subject   = {{This is the subject of my work}}
@@ -27,34 +27,220 @@
 %=== Font definitions, DTU recommends Arial for posters
 \usepackage{cmbright}
 \usepackage{arevmath}
+\usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage[bottom]{footmisc}
 \usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{lipsum}
 \setlist{nosep,leftmargin=*}
 %======================================================================
 %=== Other useful packages
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
 \usepackage{siunitx}
+\usepackage{todonotes}
+\graphicspath{{./Figures/}}
 %======================================================================
 %=== The actual content starts here
 \begin{document}
 %===  Make header for poster (title and authors)
 \begin{dtuposterhead} %
-\dtuposterauthor{  Anders Launer Bæk}
+\dtuposterauthor{Tim F. Olsen, Marcus K. Nielsen \& Anders L. Bæk.}
 \dtuposteraffil{Case 2 in 02582 Computational Data Analysis}
 \end{dtuposterhead}
 %
 %
 %======================================================================
 %===  ... and the rest of the content
-\begin{dtupostercontent}
-\section{Introduction}
-\section{Basic Options}
+\begin{minipage}{\textwidth}
+%======================================================================
+%===  Introduction part
+\section*{Introduction}
 
-\section{Introduction}
-\section{Basic Options}
+\begin{wrapfigure}{r}{0.33\textwidth}
+\centering
+\vspace{-12cm}
+\begin{subfigure}[t]{0.15\textwidth}
+\includegraphics[width=\textwidth]{clear_example}
+\end{subfigure}
+\begin{subfigure}[t]{0.15\textwidth}
+\includegraphics[width=\textwidth]{foggy_example}
+\end{subfigure}
+\caption{Examples of the data we are working on. The left image is classified as clear and the right is classified as foggy.}
+\vspace{-1cm}
+\end{wrapfigure}
+
+DMI have asked the participants of this course to attempt to classify a number of images of foggy and clear roads and scenes. Our take on the problem is to test two different methods for classifying the images: A manual extraction of features and a convolutions deep artificial neural network (ANN).
+
+The data sets we have available contains both clear and foggy images, but it is very skewed with about 1.500 foggy images and 150.000 clear images. Additionally there exists duplicates and the images are not independent since they are taken within a short time frame.
+
+
+%\subsection{limitations}
+
+
+%\todo[inline]{Der er ikke foretaget nogen kritik af allerede lablet billeder..}
+
+%\todo[inline]{Fælles for begge: overvejelser omkring IID og gentagende billeder.}
+
+%\todo[inline]{Jeg kan ikke få den til at vise footnotes? hvertfald ikke det rigtige sted.}
+
+%===  End of Introduction part
+%======================================================================
+
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}
+%======================================================================
+%===  Anders' part
+\section*{Feature extraction approach}
+
+The main goal of the hand crafted feature extractions is to see how well they are to generalize across locations.
+The model has been trained on images from Skive and the test of generalization are measured on a subset of the Billund images.
+\paragraph{Features:} The extracted features were; the mean value of the Dark channel, the variance and the squared sum of the Sobel filter values, the absolute sum and variance of the Laplace filter and the pct. of overexposed pixels\footnotemark[1]. 
+All features have been adjusted to the size of the image to create a standard of reference.
+
+Figure \ref{fig_rfc_1} illustrates the properties of the features by the first and second PCA.% principal components. %The features are clustering and separating the clear weather images and the fog images nicely.
+
+\begin{figure}
+\centering
+\input{./Figures/PCA}
+\caption{The first and the second PCA represents $87\%$ of the total variation.}
+\label{fig_rfc_1}
+\end{figure}
+
+\paragraph{The model:} A Random Forrest Classifier (RFC) has been trained on images from Skive. The selection of the hyper-parameters was by a randomized search-grid followed by a thorough search-grid both of which was done by 5-fold CV.
+% Table \ref{tab_rfc_1} reports the metrics of the test partition in Skive. 
+
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll|ll|llll}
+ &  & \multicolumn{2}{l}{Pred.} & \multicolumn{4}{|l}{Class metrics} \\
+ &  & Fog & Clear & Pre. & Sens. & F$_1$ & Acc. \\\hline
+\multirow{2}{*}{
+\rotatebox[origin=c]{90}{Actual}} & Fog   & 97 & 3   & 93 & 97  & 95 & 91 \\ 
+                                  & Clear & 0  & 100 & 98 & 100 & 99 & 99
+\end{tabular}}
+\caption{Performance metrics on the independent test partition. All values are in percentage.}
+\label{tab_rfc_1}
+\end{table}
+
+%The trained RFC model does a proper job of classifying the appearance of fog images and clear images in Skive. Table \ref{tab_rfc_2} reports the performance metrics of classification of unseen images from Billund.
 
 
 
-\end{dtupostercontent}
+
+
+
+
+%===  End of Anders part
+%======================================================================
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\textwidth}
+%======================================================================
+%===  Marcus' part
+
+\section*{Deep learning approach}
+Binary image classification is particularly well suited for \textit{Deep Convolutional Artificial Neural Networks (ConvNets)}.
+
+\paragraph{Data preparation:} The general concern with this specific data set, was that there was around 100 times more clear images than foggy images. A random subset of the clear images was sampled, equal in size to the foggy.
+
+\paragraph{Network architecture:} Considerations were the limited amount of data. Making a too large network prone to over-fitting.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/conv_net_fig}
+    \caption{Architecture of the convolutional neural network.}
+\end{figure}
+
+\paragraph{The loss function:}
+we are using in the \textit{ConvNet} is \textit{cross-entropy}.
+
+\begin{equation}
+    C(p,q) = -\sum_{i} p_i \log(q_i)
+\end{equation}
+$$\Longleftrightarrow$$
+\begin{equation}
+-y \log( \hat{y}) - (1-y)\log(1-\hat{y})
+\end{equation}
+
+\paragraph{Training:}
+was done using a \textit{stochastic gradient descent} method known as the \textit{Adam-optimiser}.
+
+
+
+%===  End of Marcus part
+%======================================================================
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\textwidth}
+%\vspace{-100pt}
+%======================================================================
+%===  Comparison part
+\section*{Results}
+\paragraph{Feature extraction approach:}
+Table \ref{tab_rfc_2} reports the classification metrics from the Billund images. 
+
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll|ll|llll}
+ &  & \multicolumn{2}{l}{Pred.} & \multicolumn{4}{|l}{Class metrics} \\
+ &  & Fog & Clear & Pre. & Sens. & F$_1$ & Acc. \\\hline
+\multirow{2}{*}{\rotatebox[origin=c]{90}{Actual}} & Fog &  97 & 3 & 93 & 97 & 95 & 91 \\ 
+ & Clear &80 & 20 & 35 & 20 & 26 & 91
+\end{tabular}}
+\caption{Performance metrics of predicting the appearance of fog in an unseen location. All values are in percentage.}
+\label{tab_rfc_2}
+\end{table}
+
+The RFC does a poor job of detecting the appearance of clear weather in the unseen location. Therefore the generalization of the features is poor and location specific. 
+
+\paragraph{Deep learning approach:}
+
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll|ll|llll}
+ &  & \multicolumn{2}{l}{Pred.} & \multicolumn{4}{|l}{Class metrics} \\
+ &  & Fog & Clear & Pre. & Sens. & F$_1$ & Acc. \\\hline
+\multirow{2}{*}{\rotatebox[origin=c]{90}{Actual}} 
+ & Fog   & 87 & 13 & 91 & 87 & 89 & 89 \\ 
+ & Clear & 9 & 91 & 88 & 91 & 89 & 89
+\end{tabular}}
+\caption{Performance metrics of predicting the appearance of fog. All values are in percentage.}
+\label{tab_conv_1}
+\end{table}
+
+%Where do I begin?
+%Answer these three questions:
+%What is the most important / interesting / astounding finding from my research project?
+%How can I visually share my research with conference attendees? Should I use charts, graphs, photos, images?
+%What kind of information can I convey during my talk that will complement my poster?
+
+\section*{Conclusion}
+% Conclusion Anders
+The handcrafted features are shown to be location specific and does not generalize to unseen locations. The RFC has an average accuracy of $98.5\%$ on the test set from Skive and an average accuracy of $58.5\%$ on unseen location from Billund.\\
+
+The ConvNet proved to be quite effective, at an accuracy of $89.0\%$. It should be mentioned that given the sampling, Billund will very likely be over represented in the training, validation and test data sets.\\
+
+So In all it seem to be the ANN which is performing best on the data but in order to be certain a bigger dataset and more tests are required.
+
+%===  End of Comparison part
+%======================================================================
+\end{minipage}
+%======================================================================
+%===  Footnotes 
+% This is the solution to the footnote problems. Add \footnotemark in the text and then set the texts here. Must be done in the same order.
+\footnotetext[1]{The selected features are inspired by the presented features in "European Study Group with Industry 121" by M. Lyksborg et. al.}
+%\footnotetext[2]{Copy kitting all over the place.}
+
+%===  End of Footnotes 
+%======================================================================
 \end{document}
