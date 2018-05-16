@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.21)  1 MAY 2018 19:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.21)  14 MAY 2018 21:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1759,26 +1759,26 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ) (/Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.aux)
 \openout1 = `doc_dtuposter.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 50.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 51.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    ... okay on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count293
@@ -1839,26 +1839,26 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `pdftex' on input line 50.
-Package crop Info: detected driver: `pdftex' on input line 50.
-Package crop Info: using `pdftex' graphics driver on input line 50.
+Package crop Info: requested driver: `pdftex' on input line 51.
+Package crop Info: detected driver: `pdftex' on input line 51.
+Package crop Info: using `pdftex' graphics driver on input line 51.
 <template/tex_dtu_compute_b_uk.pdf, id=12, 323.2075pt x 26.0975pt>
 File: template/tex_dtu_compute_b_uk.pdf Graphic file (type pdf)
  <use template/tex_dtu_compute_b_uk.pdf>
-Package pdftex.def Info: template/tex_dtu_compute_b_uk.pdf used on input line 50.
+Package pdftex.def Info: template/tex_dtu_compute_b_uk.pdf used on input line 51.
 (pdftex.def)             Requested size: 1524.23901pt x 123.05817pt.
  <template/tex_dtu_logo.pdf, id=13, 38.98967pt x 56.87248pt>
 File: template/tex_dtu_logo.pdf Graphic file (type pdf)
  <use template/tex_dtu_logo.pdf>
-Package pdftex.def Info: template/tex_dtu_logo.pdf used on input line 50.
+Package pdftex.def Info: template/tex_dtu_logo.pdf used on input line 51.
 (pdftex.def)             Requested size: 126.61476pt x 184.71184pt.
  <template/tex_dtu_frise.pdf, id=14, 959.585pt x 353.32pt>
 File: template/tex_dtu_frise.pdf Graphic file (type pdf)
  <use template/tex_dtu_frise.pdf>
-Package pdftex.def Info: template/tex_dtu_frise.pdf used on input line 50.
+Package pdftex.def Info: template/tex_dtu_frise.pdf used on input line 51.
 (pdftex.def)             Requested size: 453.72049pt x 167.06319pt.
 \AtBeginShipoutBox=\box114
-Package hyperref Info: Link coloring OFF on input line 50.
+Package hyperref Info: Link coloring OFF on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1866,13 +1866,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 50.
-LaTeX Info: Redefining \pageref on input line 50.
-LaTeX Info: Redefining \nameref on input line 50.
+LaTeX Info: Redefining \ref on input line 51.
+LaTeX Info: Redefining \pageref on input line 51.
+LaTeX Info: Redefining \nameref on input line 51.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into your preamble.
- on input line 50.
+ on input line 51.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -1955,84 +1955,84 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2017/05/19 v2.7g siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count300
-LaTeX Font Info:    Calculating math sizes for size <35> on input line 50.
-LaTeX Font Info:    Try loading font information for OT1+zavm on input line 50.
+LaTeX Font Info:    Calculating math sizes for size <35> on input line 51.
+LaTeX Font Info:    Try loading font information for OT1+zavm on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/ot1zavm.fd
 File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
 )
-LaTeX Font Info:    Try loading font information for OML+zavm on input line 50.
+LaTeX Font Info:    Try loading font information for OML+zavm on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/omlzavm.fd
 File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zavm on input line 50.
+LaTeX Font Info:    Try loading font information for OMS+zavm on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/omszavm.fd
 File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
 )
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 50.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 33.60023pt on input line 50.
+(Font)              scaled to size 33.60023pt on input line 51.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 25.53598pt on input line 50.
+(Font)              scaled to size 25.53598pt on input line 51.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 20.16034pt on input line 50.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 50.
+(Font)              scaled to size 20.16034pt on input line 51.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 33.60023pt on input line 50.
+(Font)              scaled to size 33.60023pt on input line 51.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 25.53598pt on input line 50.
+(Font)              scaled to size 25.53598pt on input line 51.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 20.16034pt on input line 50.
-LaTeX Font Info:    Try loading font information for U+zavm on input line 50.
+(Font)              scaled to size 20.16034pt on input line 51.
+LaTeX Font Info:    Try loading font information for U+zavm on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
 \c__siunitx_mathtt_int=\count301
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 50.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 51.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
-Class dtuposter Info: Setting font size: {100} {120} {1} on input line 52.
+Class dtuposter Info: Setting font size: {100} {120} {1} on input line 53.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 60} { 70} {1} on input line 53.
+Class dtuposter Info: Setting font size: { 60} { 70} {1} on input line 54.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 48} { 60} {1} on input line 54.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-
-Class scrartcl Warning: incompatible usage of \@ssect detected.
-(scrartcl)              You've used the KOMA-Script implementation of \@ssect
-(scrartcl)              from within a non compatible caller, that does not
-(scrartcl)              \scr@s@ct@@nn@m@ locally.
-(scrartcl)              This could result in several error messages on input line 63.
-
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 63.
-( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) <./Figures/clear_example.jpg, id=18, 706.64pt x 578.16pt>
-File: ./Figures/clear_example.jpg Graphic file (type jpg)
- <use ./Figures/clear_example.jpg>
-Package pdftex.def Info: ./Figures/clear_example.jpg used on input line 69.
-(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
- <./Figures/foggy_example.jpg, id=19, 706.64pt x 578.16pt>
-File: ./Figures/foggy_example.jpg Graphic file (type jpg)
- <use ./Figures/foggy_example.jpg>
-Package pdftex.def Info: ./Figures/foggy_example.jpg used on input line 72.
-(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 74.
- ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 74.
+Class dtuposter Info: Setting font size: { 48} { 60} {1} on input line 55.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
 
 Class scrartcl Warning: incompatible usage of \@ssect detected.
 (scrartcl)              You've used the KOMA-Script implementation of \@ssect
 (scrartcl)              from within a non compatible caller, that does not
 (scrartcl)              \scr@s@ct@@nn@m@ locally.
-(scrartcl)              This could result in several error messages on input line 102.
+(scrartcl)              This could result in several error messages on input line 64.
 
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 102.
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 64.
+( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) <Figures/clear_example.jpg, id=18, 706.64pt x 578.16pt>
+File: Figures/clear_example.jpg Graphic file (type jpg)
+ <use Figures/clear_example.jpg>
+Package pdftex.def Info: Figures/clear_example.jpg used on input line 70.
+(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
+ <Figures/foggy_example.jpg, id=19, 706.64pt x 578.16pt>
+File: Figures/foggy_example.jpg Graphic file (type jpg)
+ <use Figures/foggy_example.jpg>
+Package pdftex.def Info: Figures/foggy_example.jpg used on input line 73.
+(pdftex.def)             Requested size: 323.43408pt x 264.6247pt.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 75.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 75.
+ ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 103.
+
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 103.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) (./Figures/PCA.tex
 LaTeX Font Info:    Calculating math sizes for size <17.5> on input line 285.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
@@ -2050,166 +2050,146 @@ LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 114.
+(caption)                particular \caption on input line 115.
 See the caption package documentation for explanation.
 
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 114.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 115.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-LaTeX Font Info:    Calculating math sizes for size <15> on input line 114.
+LaTeX Font Info:    Calculating math sizes for size <15> on input line 115.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 14.4001pt on input line 114.
+(Font)              scaled to size 14.4001pt on input line 115.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 10.94398pt on input line 114.
+(Font)              scaled to size 10.94398pt on input line 115.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64014pt on input line 114.
+(Font)              scaled to size 8.64014pt on input line 115.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 14.4001pt on input line 114.
+(Font)              scaled to size 14.4001pt on input line 115.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 10.94398pt on input line 114.
+(Font)              scaled to size 10.94398pt on input line 115.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64014pt on input line 114.
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 114.
+(Font)              scaled to size 8.64014pt on input line 115.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 115.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Overfull \vbox (6.70813pt too high) detected at line 130
+Overfull \vbox (6.70813pt too high) detected at line 131
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 131.
+(caption)                particular \caption on input line 132.
 See the caption package documentation for explanation.
 
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 131.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 132.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 131.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 132.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
 
 Class scrartcl Warning: incompatible usage of \@ssect detected.
 (scrartcl)              You've used the KOMA-Script implementation of \@ssect
 (scrartcl)              from within a non compatible caller, that does not
 (scrartcl)              \scr@s@ct@@nn@m@ locally.
-(scrartcl)              This could result in several error messages on input line 150.
+(scrartcl)              This could result in several error messages on input line 151.
 
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 150.
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 151.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <35> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 151.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 152.
 
-Underfull \hbox (badness 1226) in paragraph at lines 153--154
+Underfull \hbox (badness 1226) in paragraph at lines 154--155
 [] []\OT1/cmbr/bx/n/35 Data prepa-ra-tion:[][] \OT1/cmbr/m/n/35 The gen-eral con-cern
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 [] []\OT1/cmbr/bx/n/35 Network ar-chi-tec-ture:[][] \OT1/cmbr/m/n/35 Con-sid-er-a-tions
  []
 
-Package epstopdf Info: Source file: <Figures/conv_net_fig.eps>
-(epstopdf)                    date: 2018-05-01 17:04:50
-(epstopdf)                    size: 94863 bytes
-(epstopdf)             Output file: <Figures/conv_net_fig-eps-converted-to.pdf>
-(epstopdf)             Command: <repstopdf --outfile=Figures/conv_net_fig-eps-converted-to.pdf Figures/conv_net_fig.eps>
-(epstopdf)             \includegraphics on input line 159.
-runsystem(repstopdf --outfile=Figures/conv_net_fig-eps-converted-to.pdf Figures/conv_net_fig.eps)...executed safely (allowed).
+<./Figures/conv_net_fig.pdf, id=21, 459.7175pt x 346.29375pt>
+File: ./Figures/conv_net_fig.pdf Graphic file (type pdf)
+ <use ./Figures/conv_net_fig.pdf>
+Package pdftex.def Info: ./Figures/conv_net_fig.pdf used on input line 160.
+(pdftex.def)             Requested size: 582.207pt x 438.58868pt.
 
-Package epstopdf Info: Result file: <Figures/conv_net_fig-eps-converted-to.pdf>.
-
-./doc_dtuposter.tex:159: Package pdftex.def Error: File `Figures/conv_net_fig-eps-converted-to.pdf' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.159 ...s[width=\textwidth]{Figures/conv_net_fig}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for OT1+cmtl on input line 159.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
-File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
-)
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 160.
+(caption)                particular \caption on input line 161.
 See the caption package documentation for explanation.
 
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 160.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 161.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 160.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 161.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
 
 Class scrartcl Warning: incompatible usage of \@ssect detected.
 (scrartcl)              You've used the KOMA-Script implementation of \@ssect
 (scrartcl)              from within a non compatible caller, that does not
 (scrartcl)              \scr@s@ct@@nn@m@ locally.
-(scrartcl)              This could result in several error messages on input line 186.
+(scrartcl)              This could result in several error messages on input line 187.
 
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 186.
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 187.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Overfull \vbox (6.70813pt too high) detected at line 198
+Overfull \vbox (6.70813pt too high) detected at line 199
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 199.
+(caption)                particular \caption on input line 200.
 See the caption package documentation for explanation.
 
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 199.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 200.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 199.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 200.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Overfull \vbox (6.70813pt too high) detected at line 216
+Overfull \vbox (6.70813pt too high) detected at line 217
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 217.
+(caption)                particular \caption on input line 218.
 See the caption package documentation for explanation.
 
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 217.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 218.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 217.
+Class dtuposter Info: Setting font size: { 15} { 24} {1} on input line 218.
  ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
 
 Class scrartcl Warning: incompatible usage of \@ssect detected.
 (scrartcl)              You've used the KOMA-Script implementation of \@ssect
 (scrartcl)              from within a non compatible caller, that does not
 (scrartcl)              \scr@s@ct@@nn@m@ locally.
-(scrartcl)              This could result in several error messages on input line 227.
+(scrartcl)              This could result in several error messages on input line 228.
 
-Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 227.
+Class dtuposter Info: Setting font size: { 35} { 45} {1} on input line 228.
 ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
-LaTeX Font Info:    Calculating math sizes for size <29.16702> on input line 241.
+LaTeX Font Info:    Calculating math sizes for size <29.16702> on input line 242.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 28.00053pt on input line 241.
+(Font)              scaled to size 28.00053pt on input line 242.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 21.28023pt on input line 241.
+(Font)              scaled to size 21.28023pt on input line 242.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 16.80048pt on input line 241.
+(Font)              scaled to size 16.80048pt on input line 242.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 28.00053pt on input line 241.
+(Font)              scaled to size 28.00053pt on input line 242.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 21.28023pt on input line 241.
+(Font)              scaled to size 21.28023pt on input line 242.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 16.80048pt on input line 241.
+(Font)              scaled to size 16.80048pt on input line 242.
 [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./template/tex_dtu_compute_b_uk.pdf> <./template/tex_dtu_logo.pdf> <./template/tex_dtu_frise.pdf> <./Figures/clear_example.jpg> <./Figures/foggy_example.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
+ <./template/tex_dtu_compute_b_uk.pdf> <./template/tex_dtu_logo.pdf> <./template/tex_dtu_frise.pdf> <./Figures/clear_example.jpg> <./Figures/foggy_example.jpg> <./Figures/conv_net_fig.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
  (/Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 246.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 246.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 247.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2217,18 +2197,18 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 44282 strings out of 492995
- 1031090 string characters out of 6132704
- 1493998 words of memory out of 5000000
- 47079 multiletter control sequences out of 15000+600000
- 57767 words of font info for 167 fonts, out of 8000000 for 9000
+ 44258 strings out of 492995
+ 1030821 string characters out of 6132704
+ 1493985 words of memory out of 5000000
+ 47072 multiletter control sequences out of 15000+600000
+ 57599 words of font info for 166 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,21n,100p,10430b,2460s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrsl17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on /Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.pdf (1 page, 324969 bytes).
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/hfbright/hfbrsl17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
+Output written on /Users/anders/DTU/Courses/CDA/Cases/case2/poster/.texpadtmp/doc_dtuposter.pdf (1 page, 1565857 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 77 compressed objects within 1 object stream
  23 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

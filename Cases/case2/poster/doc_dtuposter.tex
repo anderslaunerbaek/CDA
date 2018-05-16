@@ -30,6 +30,7 @@
 \usepackage{pgfplots}
 \usepackage{wrapfig}
 \usepackage{graphicx}
+
 \usepackage{subcaption}
 \usepackage{tikz}
 \renewcommand{\familydefault}{\sfdefault}
@@ -44,7 +45,7 @@
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{todonotes}
-\graphicspath{{./Figures/}}
+%\graphicspath{{./Figures/}}
 %======================================================================
 %=== The actual content starts here
 \begin{document}
@@ -66,10 +67,10 @@
 \centering
 \vspace{-12cm}
 \begin{subfigure}[t]{0.15\textwidth}
-\includegraphics[width=\textwidth]{clear_example}
+\includegraphics[width=\textwidth]{Figures/clear_example}
 \end{subfigure}
 \begin{subfigure}[t]{0.15\textwidth}
-\includegraphics[width=\textwidth]{foggy_example}
+\includegraphics[width=\textwidth]{Figures/foggy_example}
 \end{subfigure}
 \caption{Examples of the data we are working on. The left image is classified as clear and the right is classified as foggy.}
 \vspace{-1cm}
@@ -156,7 +157,7 @@ Binary image classification is particularly well suited for \textit{Deep Convolu
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{Figures/conv_net_fig}
+    \includegraphics[width=\textwidth]{./Figures/conv_net_fig.pdf}
     \caption{Architecture of the convolutional neural network.}
 \end{figure}
 
